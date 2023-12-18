@@ -17,6 +17,7 @@ int main(int argc, char** argv) {
 
 	Session ses;
 	
+	
 	/*Label* lbl = Label::getInstance(270, 100, 100, 70, "0");
 	ses.add(lbl);
 	Button* b = new OkaKnapp(lbl);
