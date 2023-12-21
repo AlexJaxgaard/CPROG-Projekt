@@ -11,15 +11,11 @@ namespace cwing
 	public:
 		
 
-		GameObject::GameObject()
-		{
+		GameObject::GameObject();
 
-			/*Default konstruktor*/
-		}
-
-		GameObject::GameObject *getInstance(int x, int y, int w, int h, std::string txt)
+		static GameObject::GameObject *getInstance(int x, int y, int w, int h, std::string txt)
 		{
-			SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
+			static SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
 			texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
 			SDL_FreeSurface(surf);
 			// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.png").c_str() );
@@ -51,12 +47,12 @@ namespace cwing
 	protected:
 		GameObject(int x, int y, int w, int h, std::string txt)
 		{
-			
+
 		}
 
 	private:
 		std::string text;
-		SDL_Texture *texture;
+		static SDL_Texture *texture;
 		// SDL_Texture* upIcon, *downIcon;
 	};
 }

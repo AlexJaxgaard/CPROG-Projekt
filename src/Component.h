@@ -7,6 +7,7 @@ namespace cwing
     class Component
     {
     public:
+        Component(){}
         virtual void mouseDown(const SDL_Event&) {}
 		virtual void mouseUp(const SDL_Event&) {}
         virtual void keyDown(const SDL_Event&) {}
