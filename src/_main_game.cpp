@@ -16,7 +16,8 @@ int main(int argc, char** argv) {
 	
 
 	Session ses;
-	
+	std::clog << "Session Started" << std::endl;
+	ses.run();
 	
 	/*Label* lbl = Label::getInstance(270, 100, 100, 70, "0");
 	ses.add(lbl);

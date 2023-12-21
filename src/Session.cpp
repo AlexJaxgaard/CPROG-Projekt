@@ -16,11 +16,12 @@ namespace cwing
 
 	void Session::add(Component* c) {
 		comps.push_back(c);
+		added.push_back(c);
 	}
 
-    void Session::add(Component* comp) {
+    /*void Session::add(Component* comp) {
 		added.push_back(comp);
-	}
+	}*/
 
 	void Session::remove(Component* comp) {
 		removed.push_back(comp);
