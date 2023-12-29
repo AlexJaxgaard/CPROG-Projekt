@@ -19,6 +19,7 @@ namespace cwing
 		//virtual void perform(Button* source) {}
         void setSprite(SDL_Texture* texture);
 		~ GameObject();
+
 	protected:
 		GameObject(int x, int y, int w, int h, std::string txt);
 	private:

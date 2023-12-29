@@ -7,12 +7,10 @@
 namespace cwing
 {
 
-	
-
 	static GameObject GameObject::*getInstance(int x, int y, int w, int h, std::string txt)
 	{
 		static SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
-		SDL_Texture *texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
+		texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
 		SDL_FreeSurface(surf);
 		// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.png").c_str() );
 		// downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() );
@@ -31,10 +29,13 @@ namespace cwing
 	}
 	void GameObject::draw() const
 	{
+		
+
 	}
 	// virtual void perform(Button* source) {}
-	void setSprite(SDL_Texture *texture)
+	void GameObject::setSprite(SDL_Texture *texture)
 	{
+		this->texture = texture;
 	}
 	GameObject::~GameObject()
 	{

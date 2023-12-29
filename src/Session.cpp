@@ -59,7 +59,7 @@ namespace cwing
 				} // switch
 			} // inre while
 			
-			SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
+			SDL_SetRenderDrawColor(sys.get_ren(), 0, 0, 0, 0);
 			SDL_RenderClear(sys.get_ren());
 			for (Component* c : comps)
 				c->draw();
