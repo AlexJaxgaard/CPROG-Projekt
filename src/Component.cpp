@@ -14,7 +14,7 @@ namespace cwing
 
 	Component::~Component()
 	{
-
+		
 		/*Implementation*/
 	}
 
