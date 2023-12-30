@@ -5,14 +5,17 @@
             "includePath": [
                 "/usr/local/include/SDL2",
                 "/usr/local/include",
-                "/Users/alexanderjaxgard/Library/Frameworks",
-                "/Users/alexanderjaxgard/Library/Frameworks/SDL2_image.framework",
+                //"/Users/alexanderjaxgard/Library/Frameworks",
+                //"/Users/alexanderjaxgard/Library/Frameworks/SDL2_image.framework",
+                //"/Users/elias/Library/Frameworks",
+                //"/Users/elias/Library/Frameworks/SDL2_image.framework",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include"
             ],
             "intelliSenseMode": "macos-gcc-x64",
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "compilerPath": "/usr/local/bin/g++-13"
         }
     ],
     "version": 4
