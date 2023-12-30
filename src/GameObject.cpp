@@ -13,7 +13,8 @@ namespace cwing
             SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });
             texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
             SDL_FreeSurface(surf);
-			Component* sc = new TransformComponent(x,y,w,h);
+			Component* tc = new TransformComponent(x,y,w,h);
+			Component* sc = new SpriteComponent("");
             //upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.png").c_str() );
             //downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() );
         }

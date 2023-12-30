@@ -6,7 +6,7 @@
 
 namespace cwing
 {
-    class SpriteComponent : Component
+    class SpriteComponent : public Component
     {
     
     private:
@@ -14,6 +14,9 @@ namespace cwing
 
     public:
         SpriteComponent(std::string texture);
+        void draw() const override{
+
+        }
 
 
 
