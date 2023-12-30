@@ -14,7 +14,7 @@ namespace cwing
 	public:
 		System();
 		~System();
-
+		
 		SDL_Renderer *get_ren() const;
 		TTF_Font *get_font() const;
 		Mix_Chunk *get_music() const;
