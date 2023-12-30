@@ -16,6 +16,7 @@ namespace cwing
         void keyDown(const SDL_Event&);
         void keyUp(const SDL_Event&);
 		void draw() const;
+		void update() const;
 		//virtual void perform(Button* source) {}
         void setSprite(SDL_Texture* texture);
 		~ GameObject();

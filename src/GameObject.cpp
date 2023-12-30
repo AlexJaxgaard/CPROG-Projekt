@@ -32,6 +32,12 @@ namespace cwing
 	void GameObject::draw() const
 	{
 	}
+
+	void GameObject::update() const
+	{
+		
+	}
+
 	// virtual void perform(Button* source) {}
 	void setSprite(SDL_Texture *texture)
 	{
