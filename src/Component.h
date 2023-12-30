@@ -18,9 +18,9 @@ namespace cwing
 
     protected:
         Component(int x, int y, int w, int h);
-
-    private:
         SDL_Rect rect;
+    private:
+        
         Component(const Component &) = delete;
         const Component &operator=(const Component &) = delete;
     };

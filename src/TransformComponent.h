@@ -19,16 +19,20 @@ namespace cwing{
         TransformComponent(int x, int y, int w, int h) 
         : xpos(x), ypos(y), wsize(w), hsize(h), Component(xpos, ypos, wsize, hsize)
         {
-            
+
         }
 
-        void update(int x, int y, int w, int h)
+        void update(int x, int y, int w, int h) //kanske ta bort parameter
         {
             xpos += x;
             ypos += y;
             wsize += w;
             hsize += h;
-
+            
+            rect.x = xpos;
+            rect.y = ypos;
+            rect.w = wsize;
+            rect.h = hsize;
         }
 
         int x() {return xpos;}

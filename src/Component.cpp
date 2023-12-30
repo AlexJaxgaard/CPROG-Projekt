@@ -14,6 +14,8 @@ namespace cwing
 		/*Implementation*/
 	}
 
+	
+
 	SDL_Rect rect;
 
 }
