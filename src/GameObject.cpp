@@ -31,6 +31,7 @@ namespace cwing
 	}
 	void GameObject::draw() const
 	{
+		SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
 	}
 
 	void GameObject::update() const
