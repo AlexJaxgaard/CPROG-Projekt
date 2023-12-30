@@ -1,5 +1,6 @@
 #include "Component.h"
 #include "TransformComponent.h"
+
 #include <SDL2/SDL.h>
 #include <string>
 
@@ -13,6 +14,8 @@ namespace cwing
 
     public:
         SpriteComponent(std::string texture);
+
+
 
 
 

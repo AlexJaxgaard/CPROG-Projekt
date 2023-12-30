@@ -4,6 +4,8 @@
 #include "Component.h"
 #include <SDL2/SDL.h>
 #include <string>
+#include "SpriteComponent.h"
+#include "TransformComponent.h"
 
 namespace cwing 
 {
