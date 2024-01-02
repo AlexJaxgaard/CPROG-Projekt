@@ -29,15 +29,19 @@ namespace cwing
         {
             lives = 3;
         }
-
     }
 
     void Enemy::hit()
     {
         if (lives - 1 <= 0)
         {
-            
         }
+    }
+
+    void Enemy::moveForward()
+    {
+        rectangle.y++;
+        y++;
     }
 
     Enemy::~Enemy()

@@ -13,7 +13,7 @@ namespace cwing
         
         Missile();
         ~Missile();
-        void draw() const;
+        void draw() const{}
         
 
 

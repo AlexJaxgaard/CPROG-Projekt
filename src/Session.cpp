@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include "System.h"
 #include "Component.h"
-
+#include "Enemy.h"
 #include <iostream>
 
 #define FPS 80
@@ -74,11 +74,19 @@ namespace cwing
 
 			SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
 			SDL_RenderClear(sys.get_ren());
+			for (Component *c : comps)
+			{
+				if (dynamic_cast<Enemy *>(c) != nullptr)
+				{
+					dynamic_cast<Enemy *>(c)->moveForward();
+				}
+			}
 
 			for (Component *c : comps)
 			{
 				c->draw();
 			}
+
 			SDL_RenderPresent(sys.get_ren());
 
 			// modified

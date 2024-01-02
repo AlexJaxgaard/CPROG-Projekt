@@ -45,7 +45,9 @@ int main(int argc, char **argv)
 	// Component *bg = new Component(ses.getScreenHeight(), ses.getScreenWidth(), ses.getScreenHeight(), ses.getScreenWidth(), "bg.bmp");
 	// ses.add(bg);
 
-	ses.add(gameObject);
+	for (int i = 0; i < 20; i++){
+		ses.add(randomEnemy(ses));
+	}
 	int num = gameObject->tc->x();
 
 	

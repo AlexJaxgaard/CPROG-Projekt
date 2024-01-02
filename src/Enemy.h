@@ -17,8 +17,12 @@ namespace cwing
         void draw() const;
         TransformComponent *tc;
         void hit();
+        void moveForward();
 
     protected:
+        Component *sc;
+
+    private:
         int x;
         int y;
         int w;
@@ -27,9 +31,6 @@ namespace cwing
         std::string text;
         SDL_Texture *texture;
         SDL_Rect rectangle;
-        Component *sc;
-
-    private:
     };
 
 }
