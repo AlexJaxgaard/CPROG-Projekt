@@ -13,7 +13,12 @@ int main(int argc, char **argv)
 
 	Session ses;
 	std::clog << "Session Started" << std::endl;
+
+	
+
 	GameObject *gameObject = new GameObject(0, 0, 256, 256, "/images/rymdskepp.bmp");
+	
+
 
 	ses.add(gameObject);
 	int num = gameObject->tc->x();

@@ -41,6 +41,7 @@ namespace cwing{
         int h() {return hsize;}
         void h(int h) {hsize = h;}
         void setSize(int w, int h){wsize = w; hsize = h;}
+        void draw() const override{}
 
     };
 
