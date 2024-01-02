@@ -65,6 +65,9 @@ namespace cwing
 					for (Component *c : comps)
 						c->keyUp(eve);
 					break;
+				case SDL_MOUSEMOTION:
+					for (Component *c : comps)
+						c->mouseMotion(eve);
 
 				} // switch
 			}	  // inre while
@@ -86,6 +89,24 @@ namespace cwing
 			}
 
 		} // yttre while
+	}
+
+	int Session::getScreenWidth()
+	{
+		int w, h;
+
+		SDL_GetRendererOutputSize(sys.get_ren(), &w, &h);
+
+		return w;
+	}
+
+	int Session::getScreenHeight()
+	{
+		int w, h;
+
+		SDL_GetRendererOutputSize(sys.get_ren(), &w, &h);
+
+		return h;
 	}
 
 	Session::~Session()

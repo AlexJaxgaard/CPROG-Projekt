@@ -1,3 +1,6 @@
+#ifndef SPRITE_COMPONENT_H
+#define SPRITE_COMPONENT_H
+
 #include "Component.h"
 #include "TransformComponent.h"
 
@@ -25,3 +28,4 @@ namespace cwing
 
     };
 }
+#endif

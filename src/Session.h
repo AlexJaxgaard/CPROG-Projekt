@@ -14,6 +14,8 @@ namespace cwing
 		void add(Component* c);
 		void remove(Component* c);
 		void run();
+		int getScreenHeight();
+		int getScreenWidth();
 		~Session();
 	private:
 		std::vector<Component*> comps;

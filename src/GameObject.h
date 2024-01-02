@@ -6,6 +6,8 @@
 #include <string>
 #include "SpriteComponent.h"
 #include "TransformComponent.h"
+#include "System.h"
+#include "Session.h"
 
 namespace cwing
 {
@@ -19,16 +21,16 @@ namespace cwing
 		void mouseUp(const SDL_Event &);
 		void keyDown(const SDL_Event &);
 		void keyUp(const SDL_Event &);
+		void mouseMotion(const SDL_Event &);
 		void draw() const override;
 		// virtual void perform(Button* source) {}
 		void setSprite(SDL_Texture *texture);
 		~GameObject();
 		TransformComponent *tc;
 
-	protected:
-		
-		Component *sc;
 
+	protected:
+		Component *sc;
 	private:
 		int x;
 		int y;
@@ -37,8 +39,10 @@ namespace cwing
 		std::string text;
 		SDL_Texture *texture;
 		SDL_Rect rectangle;
+		bool drag;
 
-		//SDL_Texture* upIcon, *downIcon;
+
+		// SDL_Texture* upIcon, *downIcon;
 	};
 }
 

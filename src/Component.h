@@ -13,6 +13,7 @@ namespace cwing
         virtual void mouseUp(const SDL_Event &) {}
         virtual void keyDown(const SDL_Event &) {}
         virtual void keyUp(const SDL_Event &) {}
+        virtual void mouseMotion(const SDL_Event &){}
         virtual void draw() const = 0;
         const SDL_Rect &getRect() const { return rect; }
 
