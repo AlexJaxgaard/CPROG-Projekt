@@ -9,16 +9,27 @@
 namespace cwing
 {
 
-    class Missile : public Component{
-        
-        Missile();
+    class Missile : public Component
+    {
+
+    public:
+        Missile(int xpos, int ypos);
         ~Missile();
-        void draw() const{}
-        
+        void draw() const;
+        void moveForward();
+        TransformComponent *tc;
 
-
+    protected:
+        Component *sc;
+        SDL_Rect rectangle;
+    private:
+        int x;
+        int y;
+        int w;
+        int h;
+        std::string text;
+        SDL_Texture *texture;
 
     };
-
 
 }

@@ -12,16 +12,16 @@ namespace cwing
     class Enemy : public Component
     {
     public:
-        Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty);
+        Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity);
         ~Enemy();
         void draw() const;
         TransformComponent *tc;
         void hit();
         void moveForward();
-
+        
     protected:
         Component *sc;
-
+        int velocity;
     private:
         int x;
         int y;

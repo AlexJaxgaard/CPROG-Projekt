@@ -5,12 +5,13 @@
 
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include "Missile.h"
 
 using namespace std;
 namespace cwing
 {
 
-	GameObject::GameObject(int x, int y, int w, int h, std::string txt) : Component(x, y, w, h), x(x), y(y), w(h), h(h)
+	GameObject::GameObject(int x, int y, int w, int h, std::string txt, Session& ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h),ses(ses)
 	{
 		// SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
 		SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
@@ -40,7 +41,7 @@ namespace cwing
 		sc = new SpriteComponent("");
 		// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.png").c_str() );
 		// downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() ); */
-		return new GameObject(x, y, w, h, txt);
+		return new GameObject(x, y, w, h, txt,ses);
 	}
 	void GameObject::mouseDown(const SDL_Event &event)
 	{
@@ -86,6 +87,13 @@ namespace cwing
 		}
 		else if (event.key.keysym.sym == SDLK_SPACE)
 		{
+			sys.play_sound("shot.wav");
+			cout << "space pressed" << endl;
+			
+			Missile *missile = new Missile(rectangle.x,rectangle.y);
+			ses.add(missile);
+			
+
 		}
 	}
 	void GameObject::keyUp(const SDL_Event &)

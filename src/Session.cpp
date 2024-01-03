@@ -3,6 +3,7 @@
 #include "System.h"
 #include "Component.h"
 #include "Enemy.h"
+#include "Missile.h"
 #include <iostream>
 
 #define FPS 80
@@ -79,6 +80,11 @@ namespace cwing
 				if (dynamic_cast<Enemy *>(c) != nullptr)
 				{
 					dynamic_cast<Enemy *>(c)->moveForward();
+				}
+
+				if (dynamic_cast<Missile *>(c) != nullptr)
+				{
+					dynamic_cast<Missile *>(c)->moveForward();
 				}
 			}
 

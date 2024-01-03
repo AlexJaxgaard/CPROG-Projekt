@@ -18,6 +18,7 @@ namespace cwing
 		SDL_Renderer *get_ren() const;
 		TTF_Font *get_font() const;
 		Mix_Chunk *get_music() const;
+		void play_sound(std::string path);
 
 	private:
 		SDL_Window *win;

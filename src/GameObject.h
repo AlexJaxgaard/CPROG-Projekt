@@ -14,7 +14,7 @@ namespace cwing
 	class GameObject : public Component
 	{
 	public:
-		GameObject(int x, int y, int w, int h, std::string txt);
+		GameObject(int x, int y, int w, int h, std::string txt, Session& ses);
 
 		GameObject *getInstance(int x, int y, int w, int h, std::string txt);
 		void mouseDown(const SDL_Event &);
@@ -40,6 +40,7 @@ namespace cwing
 		SDL_Texture *texture;
 		SDL_Rect rectangle;
 		bool drag;
+		Session& ses;
 
 
 		// SDL_Texture* upIcon, *downIcon;

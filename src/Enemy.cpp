@@ -5,7 +5,7 @@
 namespace cwing
 {
 
-    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty) : Component(x, y, w, h), x(x), y(y), w(h), h(h)
+    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity) : Component(x, y, w, h), x(x), y(y), w(h), h(h), velocity(velocity)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
@@ -40,8 +40,8 @@ namespace cwing
 
     void Enemy::moveForward()
     {
-        rectangle.y++;
-        y++;
+        rectangle.y += velocity;
+        y += velocity;
     }
 
     Enemy::~Enemy()

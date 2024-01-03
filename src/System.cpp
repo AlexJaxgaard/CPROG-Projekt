@@ -54,6 +54,15 @@ namespace cwing
 		return music;
 	}
 
+	void System::play_sound(std::string path)
+	{
+
+		Mix_Chunk *sound = Mix_LoadWAV((constants::gResPath + "sounds/" + path).c_str());
+		std::cout << (constants::gResPath + "sounds/" + path).c_str() << std::endl;
+			Mix_PlayChannel(-1, sound, 1);
+		Mix_FreeChunk(sound);
+	}
+
 	bool running;
 
 	System sys; // Statiskt globalt objekt (definierad utanför funktioner.)
