@@ -26,15 +26,15 @@ Component *randomEnemy(Session ses)
 	{
 	case 1:
 		type = "easy";
-		velocity = randomFloat(0.9, 1.1);
+		velocity = randomFloat(0.09, 0.10);
 		break;
 	case 2:
 		type = "medium";
-		velocity = randomFloat(1.0, 1.2);
+		velocity = randomFloat(0.1, 0.2);
 		break;
 	case 3:
 		type = "hard";
-		velocity = randomFloat(1.1, 1.4);
+		velocity = randomFloat(0.3, 0.4);
 
 	default:
 		break;
@@ -46,7 +46,7 @@ Component *randomEnemy(Session ses)
 
 int main(int argc, char **argv)
 {
-	
+
 	std::cout << "*** main()\n";
 
 	Session ses;
@@ -57,15 +57,15 @@ int main(int argc, char **argv)
 	// ses.add(bg);
 	ses.add(gameObject);
 
-	TextComponent *points = new TextComponent(0,0,34,34,"0");
+	TextComponent *points = new TextComponent(0, 0, 34, 34, "0");
 
 	ses.add(points);
 
-
-
 	int num = gameObject->tc->x();
-
-	ses.add(randomEnemy(ses));
+	for (int i = 0; i < 20; i++)
+	{
+		ses.add(randomEnemy(ses));
+	}
 
 	ses.run();
 

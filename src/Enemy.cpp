@@ -34,7 +34,6 @@ namespace cwing
 
     void Enemy::hit()
     {
-        std::cout << "hit!" << std::endl;
         if (lives - 1 <= 0)
         {
             lives = 0;

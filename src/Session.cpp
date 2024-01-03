@@ -4,8 +4,8 @@
 #include "Component.h"
 #include "Enemy.h"
 #include "Missile.h"
-#include "GameObject.h" //Ta bort
 #include <iostream>
+#include <algorithm>
 
 #define FPS 80
 
@@ -91,31 +91,25 @@ namespace cwing
 
 					for (Component *second : comps)
 					{
-						if (dynamic_cast<Enemy *>(second) != nullptr)
+						if (second != nullptr && dynamic_cast<Enemy *>(second) != nullptr)
 						{
 							Enemy *enemy = dynamic_cast<Enemy *>(second);
 							if (collisionCheck(missile->getRect(), enemy->getRect()))
 							{
 								enemy->hit();
+								missile->hit();
+								if (enemy->dead())
+								{
+									remove(enemy);
+								}
+
+								remove(missile);
 							}
 						}
 					}
 				}
 
 				c->draw();
-			}
-
-			for (Component *c : comps)
-			{
-				if (dynamic_cast<Enemy *>(c) != nullptr)
-				{
-					dynamic_cast<Enemy *>(c)->moveForward();
-				}
-
-				if (dynamic_cast<Missile *>(c) != nullptr)
-				{
-					dynamic_cast<Missile *>(c)->moveForward();
-				}
 			}
 
 			for (Component *c : comps)
@@ -132,6 +126,12 @@ namespace cwing
 			{
 				SDL_Delay(delay);
 			}
+
+			for (Component *c : removed)
+			{
+				comps.erase(std::remove(comps.begin(), comps.end(), c), comps.end());
+			}
+			removed.clear();
 
 		} // yttre while
 	}

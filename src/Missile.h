@@ -19,10 +19,12 @@ namespace cwing
         void moveForward();
         TransformComponent *tc;
         const SDL_Rect &getRect() const { return rectangle; }
+        void hit();
 
     protected:
         Component *sc;
         SDL_Rect rectangle;
+
     private:
         int x;
         int y;
@@ -30,7 +32,7 @@ namespace cwing
         int h;
         std::string text;
         SDL_Texture *texture;
-
+        bool explosionTriggered = false;
     };
 
 }
