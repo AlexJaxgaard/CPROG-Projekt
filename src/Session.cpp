@@ -4,6 +4,7 @@
 #include "Component.h"
 #include "Enemy.h"
 #include "Missile.h"
+#include "GameObject.h" //Ta bort
 #include <iostream>
 
 #define FPS 80
@@ -75,6 +76,35 @@ namespace cwing
 
 			SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
 			SDL_RenderClear(sys.get_ren());
+
+			for (Component *c : comps)
+			{
+				if (dynamic_cast<Enemy *>(c) != nullptr)
+				{
+					dynamic_cast<Enemy *>(c)->moveForward();
+				}
+
+				if (dynamic_cast<Missile *>(c) != nullptr)
+				{
+					Missile *missile = dynamic_cast<Missile *>(c);
+					missile->moveForward();
+
+					for (Component *second : comps)
+					{
+						if (dynamic_cast<Enemy *>(second) != nullptr)
+						{
+							Enemy *enemy = dynamic_cast<Enemy *>(second);
+							if (collisionCheck(missile->getRect(), enemy->getRect()))
+							{
+								enemy->hit();
+							}
+						}
+					}
+				}
+
+				c->draw();
+			}
+
 			for (Component *c : comps)
 			{
 				if (dynamic_cast<Enemy *>(c) != nullptr)
@@ -90,6 +120,7 @@ namespace cwing
 
 			for (Component *c : comps)
 			{
+
 				c->draw();
 			}
 
@@ -121,6 +152,20 @@ namespace cwing
 		SDL_GetRendererOutputSize(sys.get_ren(), &w, &h);
 
 		return h;
+	}
+
+	bool Session::collisionCheck(SDL_Rect a, SDL_Rect b)
+	{
+		if (a.x + a.w < b.x)
+			return false;
+		if (a.x > b.x + b.w)
+			return false;
+		if (a.y + a.h < b.y)
+			return false;
+		if (a.y > b.y + b.h)
+			return false;
+
+		return true;
 	}
 
 	Session::~Session()

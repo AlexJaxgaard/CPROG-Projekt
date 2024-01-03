@@ -16,6 +16,7 @@ namespace cwing
 		void run();
 		int getScreenHeight();
 		int getScreenWidth();
+		bool collisionCheck(SDL_Rect rect1,SDL_Rect rect2);
 		~Session();
 	private:
 		std::vector<Component*> comps;

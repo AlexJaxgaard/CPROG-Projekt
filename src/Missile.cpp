@@ -23,7 +23,7 @@ namespace cwing
         {
             std::cout << "Failed to create texture: " << SDL_GetError() << std::endl;
         }
-        rectangle = {x, y, 30,30};
+        rectangle = {x, y, 30, 30};
         SDL_FreeSurface(surf);
         tc = new TransformComponent(x, y, 30, 30);
         sc = new SpriteComponent("");
@@ -31,13 +31,14 @@ namespace cwing
 
     void Missile::draw() const
     {
-		SDL_RenderCopy(sys.get_ren(), texture, NULL, &rectangle);
-        
+        SDL_RenderCopy(sys.get_ren(), texture, NULL, &rectangle);
     }
 
-    void Missile::moveForward(){
+    void Missile::moveForward()
+    {
         y--;
         rectangle.y--;
     }
+    
 
 }

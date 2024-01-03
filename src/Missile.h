@@ -18,6 +18,7 @@ namespace cwing
         void draw() const;
         void moveForward();
         TransformComponent *tc;
+        const SDL_Rect &getRect() const { return rectangle; }
 
     protected:
         Component *sc;

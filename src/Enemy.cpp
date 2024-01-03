@@ -2,6 +2,7 @@
 #include <SDL2/SDL_ttf.h>
 #include "Constants.h"
 #include <SDL2/SDL_image.h>
+#include <iostream>
 namespace cwing
 {
 
@@ -33,9 +34,22 @@ namespace cwing
 
     void Enemy::hit()
     {
+        std::cout << "hit!" << std::endl;
         if (lives - 1 <= 0)
         {
+            lives = 0;
+        } else {
+            lives--;
         }
+
+        if (dead()){
+            velocity = 0;
+        }
+
+    }
+
+    bool Enemy::dead(){
+        return lives <= 0;
     }
 
     void Enemy::moveForward()

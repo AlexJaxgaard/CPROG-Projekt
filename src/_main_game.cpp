@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "Component.h"
 #include "Enemy.h"
+#include "TextComponent.h"
 using namespace cwing;
 using namespace std;
 
@@ -45,20 +46,23 @@ Component *randomEnemy(Session ses)
 
 int main(int argc, char **argv)
 {
+	
 	std::cout << "*** main()\n";
 
 	Session ses;
 	std::clog << "Session Started" << std::endl;
 
-	GameObject *gameObject = new GameObject(0, 0, 16, 16, "/images/rymdskepp.bmp", ses);
+	GameObject *gameObject = new GameObject(1, 0, 16, 16, "/images/rymdskepp.bmp", ses);
 	// Component *bg = new Component(ses.getScreenHeight(), ses.getScreenWidth(), ses.getScreenHeight(), ses.getScreenWidth(), "bg.bmp");
 	// ses.add(bg);
 	ses.add(gameObject);
 
-	for (int i = 0; i < 20; i++)
-	{
-		ses.add(randomEnemy(ses));
-	}
+	TextComponent *points = new TextComponent(0,0,34,34,"0");
+
+	ses.add(points);
+
+
+
 	int num = gameObject->tc->x();
 
 	ses.add(randomEnemy(ses));

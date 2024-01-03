@@ -9,7 +9,7 @@
 namespace cwing
 {
 
-    class Enemy : public Component
+    class Enemy : public Component 
     {
     public:
         Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity);
@@ -18,10 +18,13 @@ namespace cwing
         TransformComponent *tc;
         void hit();
         void moveForward();
-        
+        bool dead();
+        const SDL_Rect &getRect() const { return rectangle; }
+
     protected:
         Component *sc;
         int velocity;
+
     private:
         int x;
         int y;
