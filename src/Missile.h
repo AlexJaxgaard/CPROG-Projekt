@@ -32,7 +32,11 @@ namespace cwing
         int h;
         std::string text;
         SDL_Texture *texture;
-        bool explosionTriggered = false;
+        bool isExploding = false;
+        SDL_Texture *spriteSheet = nullptr;
+        std::vector<SDL_Rect> sourceRects;
+        int currentFrame = 0;
+        Uint32 explosionStart;
     };
 
 }
