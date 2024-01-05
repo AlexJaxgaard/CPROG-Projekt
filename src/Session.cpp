@@ -1,11 +1,4 @@
 #include "Session.h"
-#include <SDL2/SDL.h>
-#include "System.h"
-#include "Component.h"
-#include "Enemy.h"
-#include "Missile.h"
-#include <iostream>
-#include <algorithm>
 #define FPS 80
 
 namespace cwing
@@ -80,7 +73,12 @@ namespace cwing
 			{
 
 				c->tick();
-				c->colission();
+				
+				for (Component* i : comps){
+					if (collisionCheck(c->getRect(),i->getRect())){
+
+					}
+				}
 /* 
 				if (dynamic_cast<Enemy *>(c) != nullptr)
 				{

@@ -20,6 +20,9 @@ namespace cwing
         TransformComponent *tc;
         const SDL_Rect &getRect() const { return rectangle; }
         void hit();
+        void colission();
+        void tick();
+        std::string getLabel() {return label;}
 
     protected:
         Component *sc;
@@ -37,6 +40,7 @@ namespace cwing
         std::vector<SDL_Rect> sourceRects;
         int currentFrame = 0;
         Uint32 explosionStart;
+        std::string label = "";
     };
 
 }
