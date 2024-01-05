@@ -1,8 +1,5 @@
 #include "Session.h"
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 #define FPS 80
 
 namespace cwing
@@ -73,56 +70,7 @@ namespace cwing
 			SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
 			SDL_RenderClear(sys.get_ren());
 
-			for (Component *c : comps)
-			{
-
-				c->tick();
-<<<<<<< Updated upstream
-				
-				for (Component* i : comps){
-					if (collisionCheck(c->getRect(),i->getRect())){
-
-=======
-				for (Component *i : comps){
-					if (collisionCheck(c->getRect(),i->getRect())){
-						c->colission(i);
->>>>>>> Stashed changes
-					}
-				}
-/* 
-				if (dynamic_cast<Enemy *>(c) != nullptr)
-				{
-					dynamic_cast<Enemy *>(c)->moveForward();
-				}
-
-				if (dynamic_cast<Missile *>(c) != nullptr)
-				{
-					Missile *missile = dynamic_cast<Missile *>(c);
-					missile->moveForward();
-
-					for (Component *second : comps)
-					{
-						if (second != nullptr && dynamic_cast<Enemy *>(second) != nullptr)
-						{
-							Enemy *enemy = dynamic_cast<Enemy *>(second);
-							if (collisionCheck(missile->getRect(), enemy->getRect()))
-							{
-								enemy->hit();
-								missile->hit();
-								if (enemy->dead())
-								{
-									remove(enemy);
-									
-								}
-
-								remove(missile);
-							}
-						}
-					}
-				} */
-
-				c->draw();
-			}
+			
 
 			for (Component *c : comps)
 			{

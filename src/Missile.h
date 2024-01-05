@@ -20,15 +20,9 @@ namespace cwing
         TransformComponent *tc;
         const SDL_Rect &getRect() const { return rectangle; }
         void hit();
-<<<<<<< Updated upstream
-        void colission();
+        void colission(Component *c);
         void tick();
         std::string getLabel() {return label;}
-=======
-        void tick();
-        void colission(Component *c);
-        std::string getLabel() { return label; }
->>>>>>> Stashed changes
 
     protected:
         Component *sc;
@@ -46,11 +40,7 @@ namespace cwing
         std::vector<SDL_Rect> sourceRects;
         int currentFrame = 0;
         Uint32 explosionStart;
-<<<<<<< Updated upstream
-        std::string label = "";
-=======
         std::string label;
->>>>>>> Stashed changes
     };
 
 }

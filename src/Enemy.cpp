@@ -1,14 +1,11 @@
 #include "Enemy.h"
 #include "Constants.h"
 #include <iostream>
+
 namespace cwing
 {
 
-<<<<<<< Updated upstream
-    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity) : Component(x, y, w, h, "enemy"), x(x), y(y), w(h), h(h), velocity(velocity)
-=======
     Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity) : Component(x, y, w, h), x(x), y(y), w(h), h(h), velocity(velocity), label("enemy")
->>>>>>> Stashed changes
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
@@ -17,10 +14,6 @@ namespace cwing
 
         rectangle = {x, y, w, h};
         SDL_FreeSurface(surf);
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
         if (difficulty == "easy")
         {

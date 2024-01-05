@@ -11,11 +11,7 @@ using namespace std;
 namespace cwing
 {
 
-<<<<<<< Updated upstream
-	GameObject::GameObject(int x, int y, int w, int h, std::string txt, Session &ses) : Component(x, y, w, h, "gameobject"), x(x), y(y), w(h), h(h), ses(ses)
-=======
-	GameObject::GameObject(int x, int y, int w, int h, std::string txt, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), ses(ses), label("gameobject")
->>>>>>> Stashed changes
+	GameObject::GameObject(int x, int y, int w, int h, std::string txt, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), ses(ses)
 	{
 		// SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
 		SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
@@ -30,10 +26,6 @@ namespace cwing
 		}
 		rectangle = {0, 0, w, h};
 		SDL_FreeSurface(surf);
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 		cout << SDL_GetError();
 		// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.jpg").c_str() );
 		//  downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() );
@@ -118,7 +110,6 @@ namespace cwing
 		SDL_RenderCopy(sys.get_ren(), texture, NULL, &rectangle);
 	}
 
-<<<<<<< Updated upstream
 	void GameObject::tick(){
 
 	}
@@ -130,8 +121,6 @@ namespace cwing
 	}
 
 
-=======
->>>>>>> Stashed changes
 	// virtual void perform(Button* source) {}
 	void setSprite(SDL_Texture *texture) {}
 

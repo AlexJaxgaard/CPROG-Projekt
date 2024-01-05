@@ -40,7 +40,7 @@ Component *randomEnemy(Session ses)
 		break;
 	}
 
-	Component *enemy = new Enemy(yPos, 0, 25, 25, "images/" + type + ".bmp", type, velocity);
+	Enemy *enemy = new Enemy(yPos, 0, 25, 25, "images/" + type + ".bmp", type, velocity);
 	return enemy;
 }
 
