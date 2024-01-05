@@ -1,12 +1,12 @@
-#include "Component.h"
+#pragma once
 #include <string>
-#include "SpriteComponent.h"
-#include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
+#include "Component.h"
 // Spelklass
- namespace cwing
+namespace cwing
 {
+
 
     class Enemy : public Component
     {
@@ -36,5 +36,4 @@
         SDL_Rect rectangle;
         std::string label = "";
     };
-
 }

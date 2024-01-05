@@ -1,11 +1,8 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
-
 #include "Component.h"
 #include <SDL2/SDL.h>
 #include <string>
-#include "SpriteComponent.h"
-#include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
 #include "Player.h"
@@ -30,13 +27,11 @@ namespace cwing
 		void colission(Component *comp);
 		std::string getLabel() {return label;}
 		~GameObject();
-		TransformComponent *tc;
 		std::string getLabel() { return label; }
 		void tick();
 		void colission(Component *c);
 
 	protected:
-		Component *sc;
 
 	private:
 		int x;

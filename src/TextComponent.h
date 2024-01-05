@@ -1,7 +1,7 @@
 #ifndef CWING_TEXT_COMPONENT_H
 #define CWING_TEXT_COMPONENT_H
 
-#include "Component.h"
+
 #include "Constants.h"
 #include "GameObject.h"
 #include <SDL2/SDL_ttf.h>

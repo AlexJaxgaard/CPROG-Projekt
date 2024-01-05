@@ -1,5 +1,5 @@
-#ifndef COMPONENT_H
-#define COMPONENT_H
+#ifndef COMPONENT_H  // If COMPONENT_H is not defined...
+#define COMPONENT_H  // ...define COMPONENT_H.
 #include <SDL2/SDL.h>
 #include "Session.h"
 #include <SDL2/SDL_image.h>

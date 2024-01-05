@@ -1,6 +1,6 @@
-#pragma once
+/*#pragma once
 
-#include "Component.h"
+#include "Session.h"
 
 namespace cwing
 {
@@ -49,4 +49,4 @@ namespace cwing
         void draw() const override {}
     };
 
-}
+}*/

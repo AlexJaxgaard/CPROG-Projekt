@@ -1,4 +1,5 @@
 #include "Enemy.h"
+
 #include "Constants.h"
 #include <iostream>
 
@@ -60,10 +61,10 @@ namespace cwing
     void Enemy::colission(Component *comp)
     {
 
-        if (comp->getLabel() == "missile"){
+        if (comp->getLabel() == "missile")
+        {
             hit();
-        } 
-    
+        }
     }
 
     void Enemy::moveForward()

@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 	TextComponent *tc = new TextComponent(0,0,10,10,"0");
 	ses.add(tc);
 
-	int num = gameObject->tc->x();
+
 	for (int i = 0; i < 20; i++)
 	{
 		ses.add(randomEnemy(ses));
@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 
 	ses.run();
 
-	std::cout << num << endl;
+
 
 	std::clog << "session running" << std::endl;
 
