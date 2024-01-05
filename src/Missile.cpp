@@ -10,7 +10,7 @@
 namespace cwing
 {
 
-    Missile::Missile(int xpos, int ypos) : x(xpos), y(ypos)
+    Missile::Missile(int xpos, int ypos) : x(xpos), y(ypos), label("missile")
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + "/images/missile.bmp").c_str());
@@ -25,11 +25,9 @@ namespace cwing
         }
         rectangle = {x, y, 30, 30};
         SDL_FreeSurface(surf);
-        //tc = new TransformComponent(x, y, 30, 30);
-        //sc = new SpriteComponent("");
-        lable = "Missile";
-
     }
+
+   
 
     void Missile::draw() const
     {

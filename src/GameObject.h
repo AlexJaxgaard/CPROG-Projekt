@@ -26,11 +26,9 @@ namespace cwing
 		void mouseMotion(const SDL_Event &);
 		void draw() const override;
 		// virtual void perform(Button* source) {}
-		void setSprite(SDL_Texture *texture);
-		int getPoints();
-		void missileHit();
-		void colission(Component* comp);
 		void tick();
+		void colission(Component *comp);
+		std::string getLabel() {return label;}
 		~GameObject();
 		TransformComponent *tc;
 
@@ -48,6 +46,7 @@ namespace cwing
 		bool drag;
 		Session &ses;
 		Player *player;
+		std::string label = "";
 
 		// SDL_Texture* upIcon, *downIcon;
 	};

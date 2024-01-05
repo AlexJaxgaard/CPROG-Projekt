@@ -14,15 +14,15 @@
         Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity);
         ~Enemy();
         void draw() const;
-        TransformComponent *tc;
         void hit();
         void moveForward();
         bool dead();
         void tick();
         const SDL_Rect &getRect() const { return rectangle; } // Kan finnas i Component
+        std::string getLabel() {return label;}
+        void colission(Component *comp);
 
     protected:
-        Component *sc;
         int velocity;
 
     private:
@@ -34,6 +34,7 @@
         std::string text;
         SDL_Texture *texture;
         SDL_Rect rectangle;
+        std::string label = "";
     };
 
 //}
