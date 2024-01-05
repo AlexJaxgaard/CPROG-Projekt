@@ -29,6 +29,8 @@ namespace cwing
 		void setSprite(SDL_Texture *texture);
 		int getPoints();
 		void missileHit();
+		void colission(Component* comp);
+		void tick();
 		~GameObject();
 		TransformComponent *tc;
 

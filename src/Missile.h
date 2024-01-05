@@ -20,6 +20,9 @@ namespace cwing
         TransformComponent *tc;
         const SDL_Rect &getRect() const { return rectangle; }
         void hit();
+        void tick();
+        void colission(Component* comp);
+        std::string getLable();
 
     protected:
         Component *sc;
