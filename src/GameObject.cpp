@@ -129,5 +129,9 @@ namespace cwing
 	{
 	}
 
+	void GameObject::colission(Component* comp){
+
+	}
+
 	// SDL_Texture* upIcon, *downIcon;
 }

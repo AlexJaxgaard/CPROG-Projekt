@@ -1,9 +1,9 @@
 
 #include "Constants.h"
 #include "GameObject.h"
-#include <SDL2/SDL_ttf.h>
+//#include <SDL2/SDL_ttf.h>
 
-#include <SDL2/SDL_image.h>
+//#include <SDL2/SDL_image.h>
 #include <iostream>
 #include "Missile.h"
 
@@ -105,5 +105,13 @@ namespace cwing
             }
             SDL_FreeSurface(surf);
         }
+    }
+
+    void Missile::tick(){
+        moveForward();
+    }
+
+    void Missile::colission(Component* comp){
+
     }
 }
