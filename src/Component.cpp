@@ -5,7 +5,7 @@ namespace cwing
 
 	Component::Component() {}
 
-	Component::Component(int x, int y, int w, int h) : rect{x, y, w, h}
+	Component::Component(int x, int y, int w, int h, std::string label) : rect{x, y, w, h}, label(label)
 	{
 	}
 
