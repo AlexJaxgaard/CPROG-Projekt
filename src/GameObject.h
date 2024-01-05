@@ -26,9 +26,6 @@ namespace cwing
 		void mouseMotion(const SDL_Event &);
 		void draw() const override;
 		// virtual void perform(Button* source) {}
-		void setSprite(SDL_Texture *texture);
-		int getPoints();
-		void missileHit();
 		void tick();
 		void colission(Component *comp);
 		std::string getLabel() {return label;}
