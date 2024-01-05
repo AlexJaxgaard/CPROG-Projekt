@@ -1,4 +1,8 @@
 #include "Session.h"
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 #define FPS 80
 
 namespace cwing
@@ -73,10 +77,16 @@ namespace cwing
 			{
 
 				c->tick();
+<<<<<<< Updated upstream
 				
 				for (Component* i : comps){
 					if (collisionCheck(c->getRect(),i->getRect())){
 
+=======
+				for (Component *i : comps){
+					if (collisionCheck(c->getRect(),i->getRect())){
+						c->colission(i);
+>>>>>>> Stashed changes
 					}
 				}
 /* 

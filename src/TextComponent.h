@@ -18,6 +18,9 @@ namespace cwing
         void setText(std::string text);
         TransformComponent *tc;
         void draw() const;
+        void tick();
+        void colission(Component *c);
+        std::string getLabel() {return label;}
 
     protected:
         Component *sc;
@@ -33,6 +36,7 @@ namespace cwing
         SDL_Surface *surface;
         SDL_Color color;
         TTF_Font *font;
+        std::string label;
     };
 }
 

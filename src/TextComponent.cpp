@@ -1,7 +1,7 @@
 #include "TextComponent.h"
 namespace cwing
 {
-    TextComponent::TextComponent(int xpos, int ypos, int width, int height, std::string text) : x(xpos), y(ypos), w(width), h(height), text(text)
+    TextComponent::TextComponent(int xpos, int ypos, int width, int height, std::string text) : x(xpos), y(ypos), w(width), h(height), text(text), label("textcomponent")
     {
         font = TTF_OpenFont((constants::gResPath + "/fonts/Kalnia/Kalnia.ttf").c_str(), 36);
         if (font == NULL)
@@ -36,8 +36,6 @@ namespace cwing
         }
         rectangle = {0, 0, w, h};
         SDL_FreeSurface(surface);
-        tc = new TransformComponent(x, y, w, h);
-        sc = new SpriteComponent("");
     }
 
     void TextComponent::setText(std::string newText)

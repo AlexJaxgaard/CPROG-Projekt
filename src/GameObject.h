@@ -31,6 +31,9 @@ namespace cwing
 		std::string getLabel() {return label;}
 		~GameObject();
 		TransformComponent *tc;
+		std::string getLabel() { return label; }
+		void tick();
+		void colission(Component *c);
 
 	protected:
 		Component *sc;
@@ -46,7 +49,11 @@ namespace cwing
 		bool drag;
 		Session &ses;
 		Player *player;
+<<<<<<< Updated upstream
 		std::string label = "";
+=======
+		std::string label;
+>>>>>>> Stashed changes
 
 		// SDL_Texture* upIcon, *downIcon;
 	};
