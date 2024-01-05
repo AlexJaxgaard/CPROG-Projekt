@@ -1,6 +1,5 @@
 #include "Component.h"
-#include "Session.h"
-#include <SDL2/SDL.h>
+
 namespace cwing
 {
 

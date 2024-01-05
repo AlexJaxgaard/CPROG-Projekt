@@ -52,14 +52,13 @@ int main(int argc, char **argv)
 	Session ses;
 	std::clog << "Session Started" << std::endl;
 
-	GameObject *gameObject = new GameObject(1, 0, 16, 16, "/images/rymdskepp.bmp", ses);
+	GameObject *gameObject = new GameObject(ses.getScreenHeight(), ses.getScreenWidth()/2, 16, 16, "/images/rymdskepp.bmp", ses);
 	// Component *bg = new Component(ses.getScreenHeight(), ses.getScreenWidth(), ses.getScreenHeight(), ses.getScreenWidth(), "bg.bmp");
 	// ses.add(bg);
 	ses.add(gameObject);
 
-	TextComponent *points = new TextComponent(0, 0, 34, 34, "0");
-
-	ses.add(points);
+	TextComponent *tc = new TextComponent(0,0,10,10,"0");
+	ses.add(tc);
 
 	int num = gameObject->tc->x();
 	for (int i = 0; i < 20; i++)
@@ -75,3 +74,4 @@ int main(int argc, char **argv)
 
 	return 0;
 }
+

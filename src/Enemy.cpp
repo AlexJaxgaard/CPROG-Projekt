@@ -1,7 +1,5 @@
 #include "Enemy.h"
-#include <SDL2/SDL_ttf.h>
 #include "Constants.h"
-#include <SDL2/SDL_image.h>
 #include <iostream>
 namespace cwing
 {
@@ -49,6 +47,16 @@ namespace cwing
 
     bool Enemy::dead(){
         return lives <= 0;
+    }
+
+    void Enemy::tick(){
+
+        moveForward();
+
+    }
+
+    void colission(Component* comp){
+        
     }
 
     void Enemy::moveForward()

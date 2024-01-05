@@ -1,9 +1,10 @@
-#include "Component.h"
+#ifndef CWING_TEXT_COMPONENT_H
+#define CWING_TEXT_COMPONENT_H
 
+#include "Component.h"
 #include "Constants.h"
 #include "GameObject.h"
 #include <SDL2/SDL_ttf.h>
-
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
@@ -29,8 +30,10 @@ namespace cwing
         std::string text;
         SDL_Texture *texture;
         SDL_Rect rectangle;
-        SDL_Surface * surface;
+        SDL_Surface *surface;
         SDL_Color color;
-        TTF_Font* font;
+        TTF_Font *font;
     };
 }
+
+#endif

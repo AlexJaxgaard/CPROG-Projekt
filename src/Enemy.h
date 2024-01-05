@@ -1,15 +1,14 @@
 #include "Component.h"
-#include <SDL2/SDL.h>
 #include <string>
 #include "SpriteComponent.h"
 #include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
+//Spelklass
+//namespace cwing
+//{
 
-namespace cwing
-{
-
-    class Enemy : public Component 
+    class Enemy : public cwing::Component
     {
     public:
         Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity);
@@ -19,7 +18,8 @@ namespace cwing
         void hit();
         void moveForward();
         bool dead();
-        const SDL_Rect &getRect() const { return rectangle; }
+        void tick();
+        const SDL_Rect &getRect() const { return rectangle; } // Kan finnas i Component
 
     protected:
         Component *sc;
@@ -36,4 +36,4 @@ namespace cwing
         SDL_Rect rectangle;
     };
 
-}
+//}

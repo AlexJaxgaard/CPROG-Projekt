@@ -6,7 +6,6 @@
 #include "Missile.h"
 #include <iostream>
 #include <algorithm>
-
 #define FPS 80
 
 namespace cwing
@@ -79,6 +78,10 @@ namespace cwing
 
 			for (Component *c : comps)
 			{
+
+				c->tick();
+				c->colission();
+/* 
 				if (dynamic_cast<Enemy *>(c) != nullptr)
 				{
 					dynamic_cast<Enemy *>(c)->moveForward();
@@ -101,13 +104,14 @@ namespace cwing
 								if (enemy->dead())
 								{
 									remove(enemy);
+									
 								}
 
 								remove(missile);
 							}
 						}
 					}
-				}
+				} */
 
 				c->draw();
 			}

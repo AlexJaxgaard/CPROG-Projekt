@@ -8,13 +8,15 @@
 #include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
+#include "Player.h"
+#include "TextComponent.h"
 
 namespace cwing
 {
 	class GameObject : public Component
 	{
 	public:
-		GameObject(int x, int y, int w, int h, std::string txt, Session& ses);
+		GameObject(int x, int y, int w, int h, std::string txt, Session &ses);
 
 		GameObject *getInstance(int x, int y, int w, int h, std::string txt);
 		void mouseDown(const SDL_Event &);
@@ -25,12 +27,14 @@ namespace cwing
 		void draw() const override;
 		// virtual void perform(Button* source) {}
 		void setSprite(SDL_Texture *texture);
+		int getPoints();
+		void missileHit();
 		~GameObject();
 		TransformComponent *tc;
 
-
 	protected:
 		Component *sc;
+
 	private:
 		int x;
 		int y;
@@ -40,8 +44,8 @@ namespace cwing
 		SDL_Texture *texture;
 		SDL_Rect rectangle;
 		bool drag;
-		Session& ses;
-
+		Session &ses;
+		Player *player;
 
 		// SDL_Texture* upIcon, *downIcon;
 	};

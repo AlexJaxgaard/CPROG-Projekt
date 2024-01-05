@@ -11,7 +11,7 @@ using namespace std;
 namespace cwing
 {
 
-	GameObject::GameObject(int x, int y, int w, int h, std::string txt, Session& ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h),ses(ses)
+	GameObject::GameObject(int x, int y, int w, int h, std::string txt, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), ses(ses)
 	{
 		// SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
 		SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
@@ -31,6 +31,9 @@ namespace cwing
 		cout << SDL_GetError();
 		// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.jpg").c_str() );
 		//  downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() );
+		player = new Player();
+
+
 	}
 	GameObject *GameObject::getInstance(int x, int y, int w, int h, std::string txt)
 	{
@@ -41,7 +44,7 @@ namespace cwing
 		sc = new SpriteComponent("");
 		// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.png").c_str() );
 		// downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() ); */
-		return new GameObject(x, y, w, h, txt,ses);
+		return new GameObject(x, y, w, h, txt, ses);
 	}
 	void GameObject::mouseDown(const SDL_Event &event)
 	{
@@ -89,11 +92,9 @@ namespace cwing
 		{
 			sys.play_sound("shot.wav");
 			cout << "space pressed" << endl;
-			
-			Missile *missile = new Missile(rectangle.x,rectangle.y);
-			ses.add(missile);
-			
 
+			Missile *missile = new Missile(rectangle.x, rectangle.y);
+			ses.add(missile);
 		}
 	}
 	void GameObject::keyUp(const SDL_Event &)
@@ -112,11 +113,13 @@ namespace cwing
 	{
 		SDL_RenderCopy(sys.get_ren(), texture, NULL, &rectangle);
 	}
+
+
 	// virtual void perform(Button* source) {}
 	void setSprite(SDL_Texture *texture) {}
 	GameObject::~GameObject()
 	{
 	}
-	
+
 	// SDL_Texture* upIcon, *downIcon;
 }

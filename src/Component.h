@@ -1,6 +1,9 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 #include <SDL2/SDL.h>
+#include "Session.h"
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 namespace cwing
 {
@@ -13,8 +16,10 @@ namespace cwing
         virtual void mouseUp(const SDL_Event &) {}
         virtual void keyDown(const SDL_Event &) {}
         virtual void keyUp(const SDL_Event &) {}
-        virtual void mouseMotion(const SDL_Event &){}
+        virtual void mouseMotion(const SDL_Event &) {}
         virtual void draw() const = 0;
+        virtual void tick() = 0;
+        virtual void colission(Component* comp) = 0;
         const SDL_Rect &getRect() const { return rect; }
 
     protected:
