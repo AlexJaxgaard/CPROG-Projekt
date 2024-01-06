@@ -18,6 +18,8 @@ namespace cwing
         const SDL_Rect &getRect() const { return rectangle; }
         void hit();
         void tick() override;
+        void collision(Component *comp) override;
+        std::string getLabel() override { return label; }
 
     protected:
         SDL_Rect rectangle;
@@ -34,6 +36,7 @@ namespace cwing
         std::vector<SDL_Rect> sourceRects;
         int currentFrame = 0;
         Uint32 explosionStart;
+        std::string label = "missile";
     };
 
 }

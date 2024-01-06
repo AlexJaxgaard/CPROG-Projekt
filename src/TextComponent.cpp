@@ -61,6 +61,9 @@ namespace cwing
     void TextComponent::tick()
     {
     }
+    void TextComponent::collision(Component *comp)
+    {
+    }
 
     void TextComponent::draw() const
     {

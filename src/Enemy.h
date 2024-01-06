@@ -18,6 +18,8 @@ namespace cwing
         bool dead();
         const SDL_Rect &getRect() const { return rectangle; }
         void tick() override;
+        void collision(Component *comp) override;
+        std::string getLabel() override {return label;}
 
     protected:
         Component *sc;
@@ -32,6 +34,7 @@ namespace cwing
         std::string text;
         SDL_Texture *texture;
         SDL_Rect rectangle;
+        std::string label = "enemy";
     };
 
 }

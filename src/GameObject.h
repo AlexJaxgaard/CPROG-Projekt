@@ -25,6 +25,8 @@ namespace cwing
 		// virtual void perform(Button* source) {}
 		void setSprite(SDL_Texture *texture);
 		void tick() override;
+		void collision(Component *comp) override;
+		std::string getLabel() override {return label;}
 		~GameObject();
 
 
@@ -39,6 +41,7 @@ namespace cwing
 		SDL_Rect rectangle;
 		bool drag;
 		Session& ses;
+		std::string label = "gameobject";
 
 
 		// SDL_Texture* upIcon, *downIcon;

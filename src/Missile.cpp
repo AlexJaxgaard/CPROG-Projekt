@@ -29,6 +29,11 @@ namespace cwing
 
     void Missile::tick()
     {
+        moveForward();
+    }
+
+    void Missile::collision(Component *c){
+        
     }
 
     void Missile::draw() const
@@ -46,30 +51,8 @@ namespace cwing
     void Missile::moveForward()
     {
 
-        if (isExploding)
-        {
-            // Check if 100 milliseconds have passed since the last frame
-            if (SDL_GetTicks() - explosionStart >= 100)
-            {
-                // Go to the next frame
-                currentFrame++;
-                if (currentFrame >= sourceRects.size())
-                {
-                    // All frames have been displayed, so the explosion is over
-                    isExploding = false;
-                    SDL_DestroyTexture(spriteSheet);
-                    spriteSheet = nullptr;
-                }
-
-                // Reset the explosion timer
-                explosionStart = SDL_GetTicks();
-            }
-        }
-        else
-        {
-            y--;
-            rectangle.y--;
-        }
+        y--;
+        rectangle.y--;
     }
 
     void Missile::hit()

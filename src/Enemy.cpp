@@ -34,6 +34,10 @@ namespace cwing
 
     }
 
+    void Enemy::collision(Component *comp){
+        
+    }
+
     void Enemy::hit()
     {
         if (lives - 1 <= 0)

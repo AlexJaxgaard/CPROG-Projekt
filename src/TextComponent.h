@@ -17,6 +17,8 @@ namespace cwing
         void setText(std::string text);
         void draw() const;
         void tick() override;
+        void collision(Component *comp) override;
+        std::string getLabel() override { return label; }
 
     protected:
         Component *sc;
@@ -29,8 +31,9 @@ namespace cwing
         std::string text;
         SDL_Texture *texture;
         SDL_Rect rectangle;
-        SDL_Surface * surface;
+        SDL_Surface *surface;
         SDL_Color color;
-        TTF_Font* font;
+        TTF_Font *font;
+        std::string label = "textcomponent";
     };
 }

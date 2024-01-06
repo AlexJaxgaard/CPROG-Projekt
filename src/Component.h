@@ -1,6 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 #include <SDL2/SDL.h>
+#include <string>
 
 namespace cwing
 {
@@ -16,6 +17,8 @@ namespace cwing
         virtual void mouseMotion(const SDL_Event &){}
         virtual void draw() const = 0;
         virtual void tick() = 0;
+        virtual void collision(Component *comp) = 0;
+        virtual std::string getLabel() {return label;}
         const SDL_Rect &getRect() const { return rect; }
 
     protected:
@@ -25,6 +28,7 @@ namespace cwing
         SDL_Rect rect;
         Component(const Component &) = delete;
         const Component &operator=(const Component &) = delete;
+        std::string label = "";
     };
 }
 
