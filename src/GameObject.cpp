@@ -13,7 +13,6 @@ namespace cwing
 
 	GameObject::GameObject(int x, int y, int w, int h, std::string txt, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), ses(ses)
 	{
-		// SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
 		SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
 		if (surf == NULL)
 		{
@@ -27,18 +26,9 @@ namespace cwing
 		rectangle = {0, 0, w, h};
 		SDL_FreeSurface(surf);
 		cout << SDL_GetError();
-		// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.jpg").c_str() );
-		//  downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() );
 	}
 	GameObject *GameObject::getInstance(int x, int y, int w, int h, std::string txt)
 	{
-		/* SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
-		texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
-		SDL_FreeSurface(surf);
-		tc = new TransformComponent(x, y, w, h);
-		sc = new SpriteComponent("");
-		// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.png").c_str() );
-		// downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() ); */
 		return new GameObject(x, y, w, h, txt, ses);
 	}
 	void GameObject::mouseDown(const SDL_Event &event)

@@ -6,7 +6,7 @@
 namespace cwing
 {
 
-    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), velocity(velocity), ses(ses)
+    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), text(txt), velocity(velocity), ses(ses)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
@@ -40,37 +40,25 @@ namespace cwing
             // If it is, add it to the removed vector
             ses.remove(this);
         }
-
-        if (dead())
-        {
-            ses.remove(this);
-        }
     }
 
     void Enemy::collision(Component *comp)
     {
+
         if (comp->getLabel() == "missile")
-        {
-            hit();
-            std::cout << "enemy hit!" << std::endl;
+        {   
+           
         }
+
+
     }
 
     void Enemy::hit()
     {
-        if (lives - 1 <= 0)
-        {
-            lives = 0;
-        }
-        else
-        {
-            lives--;
-        }
-    }
 
-    bool Enemy::dead()
-    {
-        return lives <= 0;
+       if (!isDead()){
+            lives--;
+       }
     }
 
     void Enemy::moveForward()

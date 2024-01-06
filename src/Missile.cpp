@@ -6,11 +6,12 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 #include "Missile.h"
+#include "Enemy.h"
 
 namespace cwing
 {
 
-    Missile::Missile(int xpos, int ypos, Session &ses) : Component(xpos, ypos, 30, 30), x(xpos), y(ypos), ses(ses)
+    Missile::Missile(int xpos, int ypos, Session &ses) : Component(xpos, ypos, 30, 30), x(xpos), y(ypos), ses(ses), hasExploded(false)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + "/images/missile.bmp").c_str());
@@ -45,10 +46,9 @@ namespace cwing
         {
             Uint32 now = SDL_GetTicks();
             Uint32 elapsedTime = now - explosionStart;
-            currentFrame = elapsedTime / 167; 
+            currentFrame = elapsedTime / 167;
 
-            // If the animation has played, remove the object
-            if (currentFrame >= sourceRects.size())
+            if (static_cast<size_t>(currentFrame) >= sourceRects.size())
             {
                 ses.remove(this);
             }
@@ -59,7 +59,16 @@ namespace cwing
     {
         if (c->getLabel() == "enemy")
         {
-            hit();
+            if (!hasExploded)
+            {
+                hit();
+                dynamic_cast<Enemy *>(c)->hit();
+                if (dynamic_cast<Enemy *>(c)->isDead())
+                {
+                    ses.remove(c);
+                }
+                hasExploded = true;
+            }
         }
     }
 
@@ -99,6 +108,8 @@ namespace cwing
                 std::cout << "Failed to load image: " << IMG_GetError() << std::endl;
                 return;
             }
+
+            SDL_SetColorKey(surf, SDL_TRUE, SDL_MapRGB(surf->format, 255, 255, 255));
 
             spriteSheet = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
 

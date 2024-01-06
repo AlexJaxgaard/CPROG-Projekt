@@ -81,23 +81,29 @@ namespace cwing
 			{
 				c->tick();
 			}
+
+			for (Component *c : comps)
+			{
+				c->draw();
+			}
+
 			for (Component *i : comps)
 			{
 				for (Component *j : comps)
 				{
 					if (i != j && i->getLabel() != j->getLabel() && collisionCheck(i->getRect(), j->getRect()))
 					{
-						std::cout << "hit! between " + i->getLabel() + " and " + j->getLabel() << std::endl;
 						i->collision(j);
-						j->collision(i);
 					}
 				}
 			}
-			for (Component *c : comps)
-			{
 
-				c->draw();
+			for (Component *c : removed)
+			{
+				std::cout << c->getLabel() << " was removed" << std::endl;
+				comps.erase(std::remove(comps.begin(), comps.end(), c), comps.end());
 			}
+			removed.clear();
 
 			SDL_RenderPresent(sys.get_ren());
 
@@ -107,12 +113,6 @@ namespace cwing
 			{
 				SDL_Delay(delay);
 			}
-
-			for (Component *c : removed)
-			{
-				comps.erase(std::remove(comps.begin(), comps.end(), c), comps.end());
-			}
-			removed.clear();
 
 		} // yttre while
 	}

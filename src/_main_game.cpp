@@ -6,6 +6,7 @@
 #include "Component.h"
 #include "Enemy.h"
 #include "TextComponent.h"
+#include "ImageComponent.h"
 using namespace cwing;
 using namespace std;
 
@@ -20,7 +21,7 @@ Component *randomEnemy(Session ses)
 	vector<int> added_yPos;
 
 	float velocity = 1;
-	int iSecret = rand() % 3 + 1;
+	int iSecret = 3;
 	std::string type;
 
 	int yPos = rand() % ses.getScreenWidth() + 1;
@@ -55,18 +56,20 @@ int main(int argc, char **argv)
 	Session ses;
 	std::clog << "Session Started" << std::endl;
 
+	ImageComponent *backgroundImage = new ImageComponent(0, 0, ses.getScreenWidth(), ses.getScreenHeight(), "bg.bmp");
+	ses.add(backgroundImage);
+
 	GameObject *gameObject = new GameObject(1, 0, 16, 16, "/images/rymdskepp.bmp", ses);
 	// Component *bg = new Component(ses.getScreenHeight(), ses.getScreenWidth(), ses.getScreenHeight(), ses.getScreenWidth(), "bg.bmp");
 	// ses.add(bg);
 	ses.add(gameObject);
 
-
-	//ses.add(points);
-
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		ses.add(randomEnemy(ses));
 	}
+
+	// ses.add(points);
 
 	ses.run();
 
