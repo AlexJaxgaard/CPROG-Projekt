@@ -1,6 +1,8 @@
-
+#include "Component.h"
 #include <SDL2/SDL.h>
 #include <string>
+#include "SpriteComponent.h"
+#include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
 
@@ -15,13 +17,12 @@ namespace cwing
         ~Missile();
         void draw() const;
         void moveForward();
+        TransformComponent *tc;
         const SDL_Rect &getRect() const { return rectangle; }
         void hit();
-        void colission(Component *c);
-        void tick();
-        std::string getLabel() {return label;}
 
     protected:
+        Component *sc;
         SDL_Rect rectangle;
 
     private:
@@ -36,7 +37,6 @@ namespace cwing
         std::vector<SDL_Rect> sourceRects;
         int currentFrame = 0;
         Uint32 explosionStart;
-        std::string label;
     };
 
 }

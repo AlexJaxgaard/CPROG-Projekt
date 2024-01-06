@@ -1,4 +1,11 @@
 #include "Session.h"
+#include <SDL2/SDL.h>
+#include "System.h"
+#include "Component.h"
+#include "Enemy.h"
+#include "Missile.h"
+#include <iostream>
+#include <algorithm>
 
 #define FPS 80
 
@@ -70,7 +77,40 @@ namespace cwing
 			SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
 			SDL_RenderClear(sys.get_ren());
 
-			
+			for (Component *c : comps)
+			{
+				if (dynamic_cast<Enemy *>(c) != nullptr)
+				{
+					dynamic_cast<Enemy *>(c)->moveForward();
+				}
+
+				if (dynamic_cast<Missile *>(c) != nullptr)
+				{
+					Missile *missile = dynamic_cast<Missile *>(c);
+					missile->moveForward();
+
+					for (Component *second : comps)
+					{
+						if (second != nullptr && dynamic_cast<Enemy *>(second) != nullptr)
+						{
+							Enemy *enemy = dynamic_cast<Enemy *>(second);
+							if (collisionCheck(missile->getRect(), enemy->getRect()))
+							{
+								enemy->hit();
+								missile->hit();
+								if (enemy->dead())
+								{
+									remove(enemy);
+								}
+
+								remove(missile);
+							}
+						}
+					}
+				}
+
+				c->draw();
+			}
 
 			for (Component *c : comps)
 			{

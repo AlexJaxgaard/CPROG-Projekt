@@ -40,7 +40,7 @@ Component *randomEnemy(Session ses)
 		break;
 	}
 
-	Enemy *enemy = new Enemy(yPos, 0, 25, 25, "images/" + type + ".bmp", type, velocity);
+	Component *enemy = new Enemy(yPos, 0, 25, 25, "images/" + type + ".bmp", type, velocity);
 	return enemy;
 }
 
@@ -52,15 +52,16 @@ int main(int argc, char **argv)
 	Session ses;
 	std::clog << "Session Started" << std::endl;
 
-	GameObject *gameObject = new GameObject(ses.getScreenHeight(), ses.getScreenWidth()/2, 16, 16, "/images/rymdskepp.bmp", ses);
+	GameObject *gameObject = new GameObject(1, 0, 16, 16, "/images/rymdskepp.bmp", ses);
 	// Component *bg = new Component(ses.getScreenHeight(), ses.getScreenWidth(), ses.getScreenHeight(), ses.getScreenWidth(), "bg.bmp");
 	// ses.add(bg);
 	ses.add(gameObject);
 
-	TextComponent *tc = new TextComponent(0,0,10,10,"0");
-	ses.add(tc);
+	TextComponent *points = new TextComponent(0, 0, 34, 34, "0");
 
+	ses.add(points);
 
+	int num = gameObject->tc->x();
 	for (int i = 0; i < 20; i++)
 	{
 		ses.add(randomEnemy(ses));
@@ -68,10 +69,9 @@ int main(int argc, char **argv)
 
 	ses.run();
 
-
+	std::cout << num << endl;
 
 	std::clog << "session running" << std::endl;
 
 	return 0;
 }
-

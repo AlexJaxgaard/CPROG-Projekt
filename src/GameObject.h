@@ -1,19 +1,20 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
+
 #include "Component.h"
 #include <SDL2/SDL.h>
 #include <string>
+#include "SpriteComponent.h"
+#include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
-#include "Player.h"
-#include "TextComponent.h"
 
 namespace cwing
 {
 	class GameObject : public Component
 	{
 	public:
-		GameObject(int x, int y, int w, int h, std::string txt, Session &ses);
+		GameObject(int x, int y, int w, int h, std::string txt, Session& ses);
 
 		GameObject *getInstance(int x, int y, int w, int h, std::string txt);
 		void mouseDown(const SDL_Event &);
@@ -23,16 +24,13 @@ namespace cwing
 		void mouseMotion(const SDL_Event &);
 		void draw() const override;
 		// virtual void perform(Button* source) {}
-		void tick();
-		void colission(Component *comp);
-		std::string getLabel() {return label;}
+		void setSprite(SDL_Texture *texture);
 		~GameObject();
-		std::string getLabel() { return label; }
-		void tick();
-		void colission(Component *c);
+		TransformComponent *tc;
+
 
 	protected:
-
+		Component *sc;
 	private:
 		int x;
 		int y;
@@ -42,9 +40,8 @@ namespace cwing
 		SDL_Texture *texture;
 		SDL_Rect rectangle;
 		bool drag;
-		Session &ses;
-		Player *player;
-		std::string label;
+		Session& ses;
+
 
 		// SDL_Texture* upIcon, *downIcon;
 	};

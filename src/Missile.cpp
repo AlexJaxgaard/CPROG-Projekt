@@ -1,16 +1,16 @@
 
 #include "Constants.h"
 #include "GameObject.h"
-//#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_ttf.h>
 
-//#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
 #include "Missile.h"
 
 namespace cwing
 {
 
-    Missile::Missile(int xpos, int ypos) : x(xpos), y(ypos), label("missile")
+    Missile::Missile(int xpos, int ypos) : x(xpos), y(ypos)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + "/images/missile.bmp").c_str());
@@ -25,9 +25,9 @@ namespace cwing
         }
         rectangle = {x, y, 30, 30};
         SDL_FreeSurface(surf);
+        tc = new TransformComponent(x, y, 30, 30);
+        sc = new SpriteComponent("");
     }
-
-   
 
     void Missile::draw() const
     {
@@ -105,13 +105,5 @@ namespace cwing
             }
             SDL_FreeSurface(surf);
         }
-    }
-
-    void Missile::tick(){
-        moveForward();
-    }
-
-    void Missile::colission(Component* comp){
-
     }
 }

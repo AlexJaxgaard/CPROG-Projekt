@@ -1,28 +1,28 @@
-#pragma once
+#include "Component.h"
+#include <SDL2/SDL.h>
 #include <string>
+#include "SpriteComponent.h"
+#include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
-#include "Component.h"
-// Spelklass
+
 namespace cwing
 {
 
-
-    class Enemy : public Component
+    class Enemy : public Component 
     {
     public:
         Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity);
         ~Enemy();
         void draw() const;
+        TransformComponent *tc;
         void hit();
         void moveForward();
         bool dead();
-        void tick();
-        const SDL_Rect &getRect() const { return rectangle; } // Kan finnas i Component
-        std::string getLabel() {return label;}
-        void colission(Component *comp);
+        const SDL_Rect &getRect() const { return rectangle; }
 
     protected:
+        Component *sc;
         int velocity;
 
     private:
@@ -34,6 +34,6 @@ namespace cwing
         std::string text;
         SDL_Texture *texture;
         SDL_Rect rectangle;
-        std::string label = "";
     };
+
 }

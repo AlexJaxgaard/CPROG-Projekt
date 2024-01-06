@@ -1,10 +1,9 @@
-#ifndef CWING_TEXT_COMPONENT_H
-#define CWING_TEXT_COMPONENT_H
-
+#include "Component.h"
 
 #include "Constants.h"
 #include "GameObject.h"
 #include <SDL2/SDL_ttf.h>
+
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
@@ -18,9 +17,6 @@ namespace cwing
         void setText(std::string text);
         TransformComponent *tc;
         void draw() const;
-        void tick();
-        void colission(Component *c);
-        std::string getLabel() {return label;}
 
     protected:
         Component *sc;
@@ -33,11 +29,8 @@ namespace cwing
         std::string text;
         SDL_Texture *texture;
         SDL_Rect rectangle;
-        SDL_Surface *surface;
+        SDL_Surface * surface;
         SDL_Color color;
-        TTF_Font *font;
-        std::string label;
+        TTF_Font* font;
     };
 }
-
-#endif

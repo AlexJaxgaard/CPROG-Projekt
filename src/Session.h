@@ -3,13 +3,7 @@
 
 #include <vector>
 #include "Component.h"
-#include <SDL2/SDL.h>
-#include "System.h"
-#include "Enemy.h"
-#include "Missile.h"
-#include <iostream>
-#include <algorithm>
-#include <string>
+
 namespace cwing 
 {
 
