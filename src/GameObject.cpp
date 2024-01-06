@@ -88,7 +88,7 @@ namespace cwing
 			sys.play_sound("shot.wav");
 			cout << "space pressed" << endl;
 
-			Missile *missile = new Missile(rectangle.x, rectangle.y);
+			Missile *missile = new Missile(rectangle.x, rectangle.y, ses);
 			ses.add(missile);
 		}
 	}
@@ -113,11 +113,15 @@ namespace cwing
 
 	void GameObject::tick()
 	{
+		setRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
 	}
 
 	void GameObject::collision(Component *comp)
 	{
-
+		if (comp->getLabel() == "enemy")
+		{
+			std::cout << "enemy hit on player" << endl;
+		}
 	}
 
 	GameObject::~GameObject()

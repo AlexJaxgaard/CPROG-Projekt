@@ -11,7 +11,7 @@ namespace cwing
     {
 
     public:
-        Missile(int xpos, int ypos);
+        Missile(int xpos, int ypos, Session &ses);
         ~Missile();
         void draw() const;
         void moveForward();
@@ -37,6 +37,7 @@ namespace cwing
         int currentFrame = 0;
         Uint32 explosionStart;
         std::string label = "missile";
+        Session &ses;
     };
 
 }

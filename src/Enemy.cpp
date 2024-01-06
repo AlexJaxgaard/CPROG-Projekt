@@ -6,7 +6,7 @@
 namespace cwing
 {
 
-    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity) : Component(x, y, w, h), x(x), y(y), w(h), h(h), velocity(velocity)
+    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), velocity(velocity), ses(ses)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
@@ -30,12 +30,25 @@ namespace cwing
         }
     }
 
-    void Enemy::tick() {
-
+    void Enemy::tick()
+    {
+         moveForward();
+        SDL_Rect rect = this->getRect();
+        if (rect.x + rect.w < 0 || rect.x > ses.getScreenWidth() ||
+            rect.y + rect.h < 0 || rect.y > ses.getScreenHeight())
+        {
+            // If it is, add it to the removed vector
+            ses.remove(this);
+        }
+ 
     }
 
-    void Enemy::collision(Component *comp){
-        
+    void Enemy::collision(Component *comp)
+    {
+        if (comp->getLabel() == "missile")
+        {
+            hit();
+        }
     }
 
     void Enemy::hit()
@@ -43,17 +56,20 @@ namespace cwing
         if (lives - 1 <= 0)
         {
             lives = 0;
-        } else {
+        }
+        else
+        {
             lives--;
         }
 
-        if (dead()){
-            velocity = 0;
+        if (dead())
+        {
+            ses.remove(this);
         }
-
     }
 
-    bool Enemy::dead(){
+    bool Enemy::dead()
+    {
         return lives <= 0;
     }
 
@@ -61,6 +77,8 @@ namespace cwing
     {
         rectangle.y += velocity;
         y += velocity;
+        setRect(rectangle.x,rectangle.y,rectangle.w,rectangle.h);
+        
     }
 
     Enemy::~Enemy()

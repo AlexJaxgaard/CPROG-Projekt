@@ -77,18 +77,22 @@ namespace cwing
 			SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
 			SDL_RenderClear(sys.get_ren());
 
-			for (Component *c : comps){
+			for (Component *c : comps)
+			{
 				c->tick();
 			}
-
-			for (Component *i : comps){
-				for (Component *j : comps){
-					if (collisionCheck(i->getRect(),j->getRect())){
-						
+			for (Component *i : comps)
+			{
+				for (Component *j : comps)
+				{
+					if (i != j && i->getLabel() != j->getLabel() && collisionCheck(i->getRect(), j->getRect()))
+					{
+						std::cout << "hit! between " + i->getLabel() + " and " + j->getLabel() << std::endl;
+						i->collision(j);
+						j->collision(i);
 					}
 				}
 			}
-
 			for (Component *c : comps)
 			{
 

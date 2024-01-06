@@ -10,7 +10,7 @@
 namespace cwing
 {
 
-    Missile::Missile(int xpos, int ypos) : x(xpos), y(ypos)
+    Missile::Missile(int xpos, int ypos, Session &ses) : Component(xpos, ypos, 30, 30), x(xpos), y(ypos), ses(ses)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + "/images/missile.bmp").c_str());
@@ -29,11 +29,26 @@ namespace cwing
 
     void Missile::tick()
     {
-        moveForward();
+
+        SDL_Rect rect = this->getRect();
+        if (rect.x + rect.w < 0 || rect.x > ses.getScreenWidth() ||
+            rect.y + rect.h < 0 || rect.y > ses.getScreenHeight())
+        {
+            // If it is, add it to the removed vector
+            ses.remove(this);
+        }
+        else
+        {
+            moveForward();
+        }
     }
 
-    void Missile::collision(Component *c){
-        
+    void Missile::collision(Component *c)
+    {
+        if (c->getLabel() == "enemy")
+        {
+            hit();
+        }
     }
 
     void Missile::draw() const
@@ -53,6 +68,7 @@ namespace cwing
 
         y--;
         rectangle.y--;
+        setRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
     }
 
     void Missile::hit()
@@ -91,4 +107,5 @@ namespace cwing
             SDL_FreeSurface(surf);
         }
     }
+
 }

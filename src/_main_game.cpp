@@ -16,6 +16,9 @@ float randomFloat(float min, float max)
 
 Component *randomEnemy(Session ses)
 {
+
+	vector<int> added_yPos;
+
 	float velocity = 1;
 	int iSecret = rand() % 3 + 1;
 	std::string type;
@@ -34,13 +37,13 @@ Component *randomEnemy(Session ses)
 		break;
 	case 3:
 		type = "hard";
-		velocity = randomFloat(0.3, 0.4);
+		velocity = randomFloat(0.1, 0.4);
 
 	default:
 		break;
 	}
 
-	Component *enemy = new Enemy(yPos, 0, 25, 25, "images/" + type + ".bmp", type, velocity);
+	Component *enemy = new Enemy(yPos, 0, 25, 25, "images/" + type + ".bmp", type, velocity, ses);
 	return enemy;
 }
 
@@ -57,9 +60,8 @@ int main(int argc, char **argv)
 	// ses.add(bg);
 	ses.add(gameObject);
 
-	TextComponent *points = new TextComponent(0, 0, 34, 34, "0");
 
-	ses.add(points);
+	//ses.add(points);
 
 	for (int i = 0; i < 20; i++)
 	{
@@ -67,7 +69,6 @@ int main(int argc, char **argv)
 	}
 
 	ses.run();
-
 
 	std::clog << "session running" << std::endl;
 
