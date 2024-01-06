@@ -32,7 +32,7 @@ namespace cwing
 
     void Enemy::tick()
     {
-         moveForward();
+        moveForward();
         SDL_Rect rect = this->getRect();
         if (rect.x + rect.w < 0 || rect.x > ses.getScreenWidth() ||
             rect.y + rect.h < 0 || rect.y > ses.getScreenHeight())
@@ -40,7 +40,11 @@ namespace cwing
             // If it is, add it to the removed vector
             ses.remove(this);
         }
- 
+
+        if (dead())
+        {
+            ses.remove(this);
+        }
     }
 
     void Enemy::collision(Component *comp)
@@ -48,6 +52,7 @@ namespace cwing
         if (comp->getLabel() == "missile")
         {
             hit();
+            std::cout << "enemy hit!" << std::endl;
         }
     }
 
@@ -61,11 +66,6 @@ namespace cwing
         {
             lives--;
         }
-
-        if (dead())
-        {
-            ses.remove(this);
-        }
     }
 
     bool Enemy::dead()
@@ -77,8 +77,7 @@ namespace cwing
     {
         rectangle.y += velocity;
         y += velocity;
-        setRect(rectangle.x,rectangle.y,rectangle.w,rectangle.h);
-        
+        setRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
     }
 
     Enemy::~Enemy()

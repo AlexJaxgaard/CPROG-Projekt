@@ -38,6 +38,7 @@ namespace cwing
         Uint32 explosionStart;
         std::string label = "missile";
         Session &ses;
+        bool hasExploded;
     };
 
 }

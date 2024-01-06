@@ -34,12 +34,24 @@ namespace cwing
         if (rect.x + rect.w < 0 || rect.x > ses.getScreenWidth() ||
             rect.y + rect.h < 0 || rect.y > ses.getScreenHeight())
         {
-            // If it is, add it to the removed vector
             ses.remove(this);
         }
         else
         {
             moveForward();
+        }
+
+        if (isExploding)
+        {
+            Uint32 now = SDL_GetTicks();
+            Uint32 elapsedTime = now - explosionStart;
+            currentFrame = elapsedTime / 167; 
+
+            // If the animation has played, remove the object
+            if (currentFrame >= sourceRects.size())
+            {
+                ses.remove(this);
+            }
         }
     }
 
@@ -55,6 +67,7 @@ namespace cwing
     {
         if (isExploding)
         {
+
             SDL_RenderCopy(sys.get_ren(), spriteSheet, &sourceRects[currentFrame], &rectangle);
         }
         else
