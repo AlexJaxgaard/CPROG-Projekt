@@ -4,14 +4,13 @@
 #include "System.h"
 #include "Session.h"
 
-namespace cwing
-{
 
-    class Missile : public Component
+
+    class Missile : public cwing::Component
     {
 
     public:
-        Missile(int xpos, int ypos, Session &ses);
+        Missile(int xpos, int ypos, cwing::Session &ses);
         ~Missile();
         void draw() const;
         void moveForward();
@@ -37,8 +36,7 @@ namespace cwing
         int currentFrame = 0;
         Uint32 explosionStart;
         std::string label = "missile";
-        Session &ses;
+        cwing::Session &ses;
         bool hasExploded;
     };
 
-}

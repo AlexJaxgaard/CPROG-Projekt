@@ -24,9 +24,6 @@ namespace cwing
 		c->draw();
 	}
 
-	/*void Session::add(Component* comp) {
-		added.push_back(comp);
-	}*/
 
 	void Session::remove(Component *comp)
 	{

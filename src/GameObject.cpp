@@ -8,17 +8,16 @@
 #include "Missile.h"
 
 using namespace std;
-namespace cwing
-{
 
-	GameObject::GameObject(int x, int y, int w, int h, std::string txt, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), ses(ses)
+
+	GameObject::GameObject(int x, int y, int w, int h, std::string txt, cwing::Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), ses(ses)
 	{
 		SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
 		if (surf == NULL)
 		{
 			std::cout << "Failed to load image: " << IMG_GetError() << std::endl;
 		}
-		texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
+		texture = SDL_CreateTextureFromSurface(cwing::sys.get_ren(), surf);
 		if (texture == NULL)
 		{
 			std::cout << "Failed to create texture: " << SDL_GetError() << std::endl;
@@ -75,7 +74,7 @@ namespace cwing
 		}
 		else if (event.key.keysym.sym == SDLK_SPACE)
 		{
-			sys.play_sound("shot.wav");
+			cwing::sys.play_sound("shot.wav");
 			cout << "space pressed" << endl;
 
 			Missile *missile = new Missile(rectangle.x, rectangle.y, ses);
@@ -96,7 +95,7 @@ namespace cwing
 	}
 	void GameObject::draw() const
 	{
-		SDL_RenderCopy(sys.get_ren(), texture, NULL, &rectangle);
+		SDL_RenderCopy(cwing::sys.get_ren(), texture, NULL, &rectangle);
 	}
 	// virtual void perform(Button* source) {}
 	void setSprite(SDL_Texture *texture) {}
@@ -119,4 +118,4 @@ namespace cwing
 	}
 
 	// SDL_Texture* upIcon, *downIcon;
-}
+

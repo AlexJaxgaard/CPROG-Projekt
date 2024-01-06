@@ -4,13 +4,12 @@
 #include "System.h"
 #include "Session.h"
 
-namespace cwing
-{
 
-    class Enemy : public Component
+
+    class Enemy : public cwing::Component
     {
     public:
-        Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, Session &ses);
+        Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, cwing::Session &ses);
         ~Enemy();
         void draw() const;
         void hit();
@@ -34,9 +33,8 @@ namespace cwing
         SDL_Texture *texture;
         SDL_Rect rectangle;
         std::string label = "enemy";
-        Session &ses;
+        cwing::Session &ses;
         
 
     };
 
-}

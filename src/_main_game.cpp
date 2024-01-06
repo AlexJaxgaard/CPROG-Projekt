@@ -60,8 +60,7 @@ int main(int argc, char **argv)
 	ses.add(backgroundImage);
 
 	GameObject *gameObject = new GameObject(1, 0, 16, 16, "/images/rymdskepp.bmp", ses);
-	// Component *bg = new Component(ses.getScreenHeight(), ses.getScreenWidth(), ses.getScreenHeight(), ses.getScreenWidth(), "bg.bmp");
-	// ses.add(bg);
+
 	ses.add(gameObject);
 
 	for (int i = 0; i < 10; i++)
@@ -69,7 +68,7 @@ int main(int argc, char **argv)
 		ses.add(randomEnemy(ses));
 	}
 
-	// ses.add(points);
+
 
 	ses.run();
 

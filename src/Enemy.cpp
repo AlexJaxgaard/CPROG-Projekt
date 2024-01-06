@@ -3,15 +3,14 @@
 #include "Constants.h"
 #include <SDL2/SDL_image.h>
 #include <iostream>
-namespace cwing
-{
 
-    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), text(txt), velocity(velocity), ses(ses)
+
+    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, cwing::Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), text(txt), velocity(velocity), ses(ses)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
 
-        texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
+        texture = SDL_CreateTextureFromSurface(cwing::sys.get_ren(), surf);
 
         rectangle = {x, y, w, h};
         SDL_FreeSurface(surf);
@@ -74,7 +73,6 @@ namespace cwing
 
     void Enemy::draw() const
     {
-        SDL_RenderCopy(sys.get_ren(), texture, NULL, &rectangle);
+        SDL_RenderCopy(cwing::sys.get_ren(), texture, NULL, &rectangle);
     }
 
-}

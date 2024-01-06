@@ -8,10 +8,9 @@
 #include "Missile.h"
 #include "Enemy.h"
 
-namespace cwing
-{
 
-    Missile::Missile(int xpos, int ypos, Session &ses) : Component(xpos, ypos, 30, 30), x(xpos), y(ypos), ses(ses), hasExploded(false)
+
+    Missile::Missile(int xpos, int ypos, cwing::Session &ses) : Component(xpos, ypos, 30, 30), x(xpos), y(ypos), ses(ses), hasExploded(false)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + "/images/missile.bmp").c_str());
@@ -19,7 +18,7 @@ namespace cwing
         {
             std::cout << "Failed to load image: " << IMG_GetError() << std::endl;
         }
-        texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
+        texture = SDL_CreateTextureFromSurface(cwing::sys.get_ren(), surf);
         if (texture == NULL)
         {
             std::cout << "Failed to create texture: " << SDL_GetError() << std::endl;
@@ -77,11 +76,11 @@ namespace cwing
         if (isExploding)
         {
 
-            SDL_RenderCopy(sys.get_ren(), spriteSheet, &sourceRects[currentFrame], &rectangle);
+            SDL_RenderCopy(cwing::sys.get_ren(), spriteSheet, &sourceRects[currentFrame], &rectangle);
         }
         else
         {
-            SDL_RenderCopy(sys.get_ren(), texture, NULL, &rectangle);
+            SDL_RenderCopy(cwing::sys.get_ren(), texture, NULL, &rectangle);
         }
     }
 
@@ -111,7 +110,7 @@ namespace cwing
 
             SDL_SetColorKey(surf, SDL_TRUE, SDL_MapRGB(surf->format, 255, 255, 255));
 
-            spriteSheet = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
+            spriteSheet = SDL_CreateTextureFromSurface(cwing::sys.get_ren(), surf);
 
             if (spriteSheet == nullptr)
             {
@@ -132,4 +131,3 @@ namespace cwing
         }
     }
 
-}

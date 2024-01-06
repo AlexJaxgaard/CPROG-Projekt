@@ -8,12 +8,11 @@
 #include "System.h"
 #include "Session.h"
 
-namespace cwing
-{
-	class GameObject : public Component
+
+	class GameObject : public cwing::Component
 	{
 	public:
-		GameObject(int x, int y, int w, int h, std::string txt, Session& ses);
+		GameObject(int x, int y, int w, int h, std::string txt, cwing::Session& ses);
 
 		GameObject *getInstance(int x, int y, int w, int h, std::string txt);
 		void mouseDown(const SDL_Event &);
@@ -40,12 +39,12 @@ namespace cwing
 		SDL_Texture *texture;
 		SDL_Rect rectangle;
 		bool drag;
-		Session& ses;
+		cwing::Session& ses;
 		std::string label = "gameobject";
 
 
 		// SDL_Texture* upIcon, *downIcon;
 	};
-}
+
 
 #endif
