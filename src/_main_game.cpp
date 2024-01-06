@@ -61,7 +61,6 @@ int main(int argc, char **argv)
 
 	ses.add(points);
 
-	int num = gameObject->tc->x();
 	for (int i = 0; i < 20; i++)
 	{
 		ses.add(randomEnemy(ses));
@@ -69,7 +68,6 @@ int main(int argc, char **argv)
 
 	ses.run();
 
-	std::cout << num << endl;
 
 	std::clog << "session running" << std::endl;
 

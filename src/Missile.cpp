@@ -25,8 +25,10 @@ namespace cwing
         }
         rectangle = {x, y, 30, 30};
         SDL_FreeSurface(surf);
-        tc = new TransformComponent(x, y, 30, 30);
-        sc = new SpriteComponent("");
+    }
+
+    void Missile::tick()
+    {
     }
 
     void Missile::draw() const

@@ -1,8 +1,6 @@
 #include "Component.h"
 #include <SDL2/SDL.h>
 #include <string>
-#include "SpriteComponent.h"
-#include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
 
@@ -15,11 +13,11 @@ namespace cwing
         Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity);
         ~Enemy();
         void draw() const;
-        TransformComponent *tc;
         void hit();
         void moveForward();
         bool dead();
         const SDL_Rect &getRect() const { return rectangle; }
+        void tick() override;
 
     protected:
         Component *sc;

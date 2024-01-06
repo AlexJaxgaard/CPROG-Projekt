@@ -36,8 +36,6 @@ namespace cwing
         }
         rectangle = {0, 0, w, h};
         SDL_FreeSurface(surface);
-        tc = new TransformComponent(x, y, w, h);
-        sc = new SpriteComponent("");
     }
 
     void TextComponent::setText(std::string newText)
@@ -58,6 +56,10 @@ namespace cwing
         }
         rectangle = {0, 0, w, h};
         SDL_FreeSurface(surface);
+    }
+
+    void TextComponent::tick()
+    {
     }
 
     void TextComponent::draw() const

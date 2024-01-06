@@ -4,8 +4,7 @@
 #include "Component.h"
 #include <SDL2/SDL.h>
 #include <string>
-#include "SpriteComponent.h"
-#include "TransformComponent.h"
+
 #include "System.h"
 #include "Session.h"
 
@@ -25,12 +24,11 @@ namespace cwing
 		void draw() const override;
 		// virtual void perform(Button* source) {}
 		void setSprite(SDL_Texture *texture);
+		void tick() override;
 		~GameObject();
-		TransformComponent *tc;
 
 
 	protected:
-		Component *sc;
 	private:
 		int x;
 		int y;

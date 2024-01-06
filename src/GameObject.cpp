@@ -26,8 +26,6 @@ namespace cwing
 		}
 		rectangle = {0, 0, w, h};
 		SDL_FreeSurface(surf);
-		tc = new TransformComponent(x, y, w, h);
-		sc = new SpriteComponent("");
 		cout << SDL_GetError();
 		// upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/UppKnapp.jpg").c_str() );
 		//  downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/NerKnapp.png").c_str() );
@@ -114,9 +112,16 @@ namespace cwing
 	}
 	// virtual void perform(Button* source) {}
 	void setSprite(SDL_Texture *texture) {}
+
+	void GameObject::tick(){
+
+	}
+
+
 	GameObject::~GameObject()
 	{
 	}
+	
 	
 	// SDL_Texture* upIcon, *downIcon;
 }

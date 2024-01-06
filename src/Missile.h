@@ -1,8 +1,6 @@
 #include "Component.h"
 #include <SDL2/SDL.h>
 #include <string>
-#include "SpriteComponent.h"
-#include "TransformComponent.h"
 #include "System.h"
 #include "Session.h"
 
@@ -17,12 +15,11 @@ namespace cwing
         ~Missile();
         void draw() const;
         void moveForward();
-        TransformComponent *tc;
         const SDL_Rect &getRect() const { return rectangle; }
         void hit();
+        void tick() override;
 
     protected:
-        Component *sc;
         SDL_Rect rectangle;
 
     private:

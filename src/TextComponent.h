@@ -15,8 +15,8 @@ namespace cwing
     public:
         TextComponent(int xpos, int ypos, int width, int height, std::string text);
         void setText(std::string text);
-        TransformComponent *tc;
         void draw() const;
+        void tick() override;
 
     protected:
         Component *sc;

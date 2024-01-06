@@ -15,8 +15,6 @@ namespace cwing
 
         rectangle = {x, y, w, h};
         SDL_FreeSurface(surf);
-        tc = new TransformComponent(x, y, w, h);
-        sc = new SpriteComponent("");
 
         if (difficulty == "easy")
         {
@@ -30,6 +28,10 @@ namespace cwing
         {
             lives = 3;
         }
+    }
+
+    void Enemy::tick() {
+
     }
 
     void Enemy::hit()
