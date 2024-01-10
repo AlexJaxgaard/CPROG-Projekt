@@ -27,7 +27,8 @@ public:
 
 private:
     int direction = 0;
-
+    SDL_Texture *texture;
     SDL_Rect head;
+    SDL_Rect rectangle;
 
 };

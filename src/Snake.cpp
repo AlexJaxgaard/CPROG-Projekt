@@ -1,4 +1,5 @@
 #include "Snake.h"
+#include "Constants.h"
 using namespace std;
 
 enum Direction
@@ -66,11 +67,11 @@ void Snake::move(){
 }
 
 void Snake::draw()const{
-    GameObject::draw();
+    this->GameObject::draw();
 }
 
 void Snake::tick(){
     move();
-    setRect(head.x, head.y, head.w, head.h);
+    this->setRect(head.x, head.y, head.w, head.h);
 
 }
