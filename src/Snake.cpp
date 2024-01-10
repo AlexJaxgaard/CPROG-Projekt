@@ -38,3 +38,29 @@ void Snake::keyDown(const SDL_Event &event)
         direction = RIGHT;
     }
 }
+
+void Snake::move(){
+    switch(direction)
+    {
+        case DOWN:
+            head.y += 10;
+            break;
+        case UP:
+            head.y -= 10;
+            break;
+        case LEFT:
+            head.x -= 10;
+            break;
+        case RIGHT:
+            head.x += 10;
+            break;
+    }
+}
+
+void Snake::draw()const{
+    
+}
+
+void Snake::tick(){
+    
+}

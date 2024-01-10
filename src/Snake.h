@@ -17,6 +17,7 @@ class Snake : public cwing::Component{
     void draw() const = 0;
     void tick() = 0;
     void collision(Component *comp) = 0;
+    void move();
 
     int direction = 0;
 
