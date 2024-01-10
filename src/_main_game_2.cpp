@@ -20,8 +20,8 @@ int main(int argc, char **argv)
 	Session ses;
 	std::clog << "Session Started" << std::endl;
 
-	ImageComponent *backgroundImage = new ImageComponent(0, 0, ses.getScreenWidth(), ses.getScreenHeight(), "bg.bmp");
-	ses.add(backgroundImage);
+	//ImageComponent *backgroundImage = new ImageComponent(0, 0, ses.getScreenWidth(), ses.getScreenHeight(), "bg.bmp");
+	//ses.add(backgroundImage);
 
 	Snake *snake = new Snake(350, 300, 16, 16, "/images/rymdskepp.bmp", ses);
 
