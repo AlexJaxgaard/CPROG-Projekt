@@ -6,7 +6,7 @@ namespace cwing
     {
         SDL_Surface *surf = IMG_Load((constants::gResPath + "images/" + txt).c_str());
         texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
-        rectangle = {0, 0, w, h};
+        rectangle = {x, y, w, h};//0, 0 blev x, y
         SDL_FreeSurface(surf);
     }
 
