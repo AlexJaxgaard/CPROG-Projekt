@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, cwing::Session &ses) : Component(x, y, w, h), x(x), y(y), w(h), h(h), text(txt), velocity(velocity), ses(ses)
+    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int v, cwing::Session &ses) : Component(x, y, w, h), x(x), y(y), w(w), h(h), text(txt), velocity(v), ses(ses)
     {
 
         SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());

@@ -34,7 +34,5 @@
         SDL_Rect rectangle;
         std::string label = "enemy";
         cwing::Session &ses;
-        
-
     };
 
