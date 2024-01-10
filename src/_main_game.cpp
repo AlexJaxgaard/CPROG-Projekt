@@ -1,4 +1,4 @@
-#include <string>
+/*#include <string>
 #include "Session.h"
 #include <iostream>
 #include <stdlib.h>
@@ -75,4 +75,4 @@ int main(int argc, char **argv)
 	std::clog << "session running" << std::endl;
 
 	return 0;
-}
+}*/

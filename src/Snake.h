@@ -3,10 +3,15 @@
 #include "System.h"
 #include "Session.h"
 #include <iostream>
+#include "GameObject.h"
 
-class Snake : public cwing::Component{
+class Snake : public GameObject{
 
-    Snake(int x, int y, int w, int h);
+public:
+
+    Snake(int x, int y, int w, int h, std::string txt, cwing::Session &ses);
+
+    Snake* getInstance(int x, int y, int w, int h, std::string txt, cwing::Session &ses);
 
 
     void mouseDown(const SDL_Event &);
@@ -14,11 +19,12 @@ class Snake : public cwing::Component{
     void keyDown(const SDL_Event &);
     void keyUp(const SDL_Event &);
     void mouseMotion(const SDL_Event &);
-    void draw() const = 0;
-    void tick() = 0;
-    void collision(Component *comp) = 0;
+    void draw() const;
+    void tick();
+    void collision(Component *comp);
     void move();
 
+private:
     int direction = 0;
 
     SDL_Rect head;

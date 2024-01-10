@@ -9,8 +9,12 @@ enum Direction
     UP
 };
 
-Snake::Snake(int x, int y, int w, int h) : cwing::Component(x, y, w, h){
-    
+Snake::Snake(int x, int y, int w, int h, std::string txt, cwing::Session &ses) : GameObject(x, y, w, h, txt, ses){
+    head = getRect();
+}
+
+Snake* Snake::getInstance(int x, int y, int w, int h, std::string txt, cwing::Session &ses){
+    return new Snake(x, y, w, h, txt, ses);
 }
 
 
@@ -58,9 +62,11 @@ void Snake::move(){
 }
 
 void Snake::draw()const{
-    
+    GameObject::draw();
 }
 
 void Snake::tick(){
-    
+    move();
+    setRect(head.x, head.y, head.w, head.h);
+
 }
