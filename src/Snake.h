@@ -13,6 +13,7 @@ public:
 
     Snake* getInstance(int x, int y, int w, int h, std::string txt, cwing::Session &ses);
 
+    ~Snake();
 
     void mouseDown(const SDL_Event &);
     void mouseUp(const SDL_Event &);

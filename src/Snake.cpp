@@ -17,6 +17,10 @@ Snake* Snake::getInstance(int x, int y, int w, int h, std::string txt, cwing::Se
     return new Snake(x, y, w, h, txt, ses);
 }
 
+Snake::~Snake(){
+
+}
+
 
 void Snake::keyDown(const SDL_Event &event)
 {
