@@ -4,6 +4,7 @@
 #include "Component.h"
 #include "Enemy.h"
 #include "Missile.h"
+#include "Snake.h"
 #include <iostream>
 #include <algorithm>
 

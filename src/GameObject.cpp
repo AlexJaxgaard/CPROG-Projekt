@@ -22,7 +22,7 @@ using namespace std;
 		{
 			std::cout << "Failed to create texture: " << SDL_GetError() << std::endl;
 		}
-		rectangle = {0, 0, w, h};
+		rectangle = {x, y, w, h};//0, 0 blev x, y
 		SDL_FreeSurface(surf);
 		cout << SDL_GetError();
 	}

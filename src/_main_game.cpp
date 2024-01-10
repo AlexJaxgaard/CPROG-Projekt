@@ -1,4 +1,4 @@
-#include <string>
+/*#include <string>
 #include "Session.h"
 #include <iostream>
 #include <stdlib.h>
@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 	ImageComponent *backgroundImage = new ImageComponent(0, 0, ses.getScreenWidth(), ses.getScreenHeight(), "bg.bmp");
 	ses.add(backgroundImage);
 
-	GameObject *gameObject = new GameObject(1, 0, 16, 16, "/images/rymdskepp.bmp", ses);
+	GameObject *gameObject = new GameObject(350, 500, 16, 16, "/images/rymdskepp.bmp", ses);
 
 	ses.add(gameObject);
 
@@ -75,4 +75,4 @@ int main(int argc, char **argv)
 	std::clog << "session running" << std::endl;
 
 	return 0;
-}
+}*/
