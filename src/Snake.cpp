@@ -64,6 +64,7 @@ void Snake::move(){
             head.x += 10;
             break;
     }
+    std::cout << direction << std::endl;
 }
 
 void Snake::draw()const{
