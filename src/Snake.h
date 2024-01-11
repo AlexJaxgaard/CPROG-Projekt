@@ -15,11 +15,11 @@ public:
 
     ~Snake();
 
-    void mouseDown(const SDL_Event &);
-    void mouseUp(const SDL_Event &);
+    void mouseDown(const SDL_Event &){};
+    void mouseUp(const SDL_Event &){};
     void keyDown(const SDL_Event &);
-    void keyUp(const SDL_Event &);
-    void mouseMotion(const SDL_Event &);
+    void keyUp(const SDL_Event &){};
+    void mouseMotion(const SDL_Event &){};
     void draw() const;
     void tick();
     void collision(Component *comp);
