@@ -2,10 +2,9 @@
 #include "Session.h"
 #include <iostream>
 #include <stdlib.h>
-#include "GameObject.h"
+#include "Player.h"
 #include "Component.h"
 #include "Enemy.h"
-#include "TextComponent.h"
 #include "ImageComponent.h"
 using namespace cwing;
 using namespace std;
@@ -59,14 +58,10 @@ int main(int argc, char **argv)
 	ImageComponent *backgroundImage = new ImageComponent(0, 0, ses.getScreenWidth(), ses.getScreenHeight(), "bg.bmp");
 	ses.add(backgroundImage);
 
-	GameObject *gameObject = new GameObject(350, 500, 16, 16, "/images/rymdskepp.bmp", ses);
+	Player *player = new Player(ses.getScreenWidth()/2, ses.getScreenHeight()-(ses.getScreenHeight()/4), 32, 32, "images/rymdskepp.bmp", ses);
 
-	ses.add(gameObject);
+	ses.add(player);
 
-	for (int i = 0; i < 10; i++)
-	{
-		ses.add(randomEnemy(ses));
-	}
 
 
 

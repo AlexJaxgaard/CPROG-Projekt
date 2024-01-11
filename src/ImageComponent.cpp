@@ -2,7 +2,7 @@
 namespace cwing
 {
 
-    ImageComponent::ImageComponent(int xpos, int ypos, int width, int height, std::string txt) : Component(xpos, ypos, width, height), x(xpos), y(ypos), w(width), h(height)
+    ImageComponent::ImageComponent(int xpos, int ypos, int width, int height, std::string txt) : Component(xpos, ypos, width, height, "/images/"+txt), x(xpos), y(ypos), w(width), h(height)
     {
         SDL_Surface *surf = IMG_Load((constants::gResPath + "images/" + txt).c_str());
         texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);

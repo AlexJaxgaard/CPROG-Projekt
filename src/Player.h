@@ -1,5 +1,5 @@
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "Component.h"
 #include <SDL2/SDL.h>
@@ -9,12 +9,12 @@
 #include "Session.h"
 
 
-	class GameObject : public cwing::Component
+	class Player : public cwing::Component
 	{
 	public:
-		GameObject(int x, int y, int w, int h, std::string txt, cwing::Session& ses);
+		Player(int x, int y, int w, int h, std::string txt, cwing::Session& ses);
 
-		GameObject *getInstance(int x, int y, int w, int h, std::string txt);
+		Player *getInstance(int x, int y, int w, int h, std::string txt);
 		void mouseDown(const SDL_Event &);
 		void mouseUp(const SDL_Event &);
 		void keyDown(const SDL_Event &);
@@ -26,7 +26,7 @@
 		void tick() override;
 		void collision(Component *comp) override;
 		std::string getLabel() override {return label;}
-		~GameObject();
+		~Player();
 
 
 	protected:
@@ -40,7 +40,7 @@
 		SDL_Rect rectangle;
 		bool drag;
 		cwing::Session& ses;
-		std::string label = "gameobject";
+		std::string label = "player";
 
 
 		// SDL_Texture* upIcon, *downIcon;

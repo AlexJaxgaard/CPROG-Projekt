@@ -24,10 +24,7 @@
         int velocity;
 
     private:
-        int x;
-        int y;
-        int w;
-        int h;
+
         int lives;
         std::string text;
         SDL_Texture *texture;

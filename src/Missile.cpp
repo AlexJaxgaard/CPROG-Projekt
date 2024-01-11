@@ -1,6 +1,6 @@
 
 #include "Constants.h"
-#include "GameObject.h"
+#include "Player.h"
 #include <SDL2/SDL_ttf.h>
 
 #include <SDL2/SDL_image.h>
@@ -10,29 +10,18 @@
 
 
 
-    Missile::Missile(int xpos, int ypos, cwing::Session &ses) : Component(xpos, ypos, 30, 30), x(xpos), y(ypos), ses(ses), hasExploded(false)
+    Missile::Missile(int xpos, int ypos, cwing::Session &ses) : cwing::Component(xpos, ypos, 30, 30, "/images/missile.bmp"), ses(ses), hasExploded(false), rect{xpos,ypos,30,30}
     {
 
-        SDL_Surface *surf = IMG_Load((constants::gResPath + "/images/missile.bmp").c_str());
-        if (surf == NULL)
-        {
-            std::cout << "Failed to load image: " << IMG_GetError() << std::endl;
-        }
-        texture = SDL_CreateTextureFromSurface(cwing::sys.get_ren(), surf);
-        if (texture == NULL)
-        {
-            std::cout << "Failed to create texture: " << SDL_GetError() << std::endl;
-        }
-        rectangle = {x, y, 30, 30};
-        SDL_FreeSurface(surf);
+
     }
 
     void Missile::tick()
     {
 
         SDL_Rect rect = this->getRect();
-        if (rect.x + rect.w < 0 || rect.x > ses.getScreenWidth() ||
-            rect.y + rect.h < 0 || rect.y > ses.getScreenHeight())
+        if (getRect().x + getRect().w < 0 || getRect().x > ses.getScreenWidth() ||
+            getRect().y + getRect().h < 0 || getRect().y > ses.getScreenHeight())
         {
             ses.remove(this);
         }
@@ -54,7 +43,7 @@
         }
     }
 
-    void Missile::collision(Component *c)
+    void Missile::collision(cwing::Component *c)
     {
         if (c->getLabel() == "enemy")
         {
@@ -76,20 +65,20 @@
         if (isExploding)
         {
 
-            SDL_RenderCopy(cwing::sys.get_ren(), spriteSheet, &sourceRects[currentFrame], &rectangle);
+            SDL_RenderCopy(cwing::sys.get_ren(), spriteSheet, &sourceRects[currentFrame], &rect);
         }
         else
         {
-            SDL_RenderCopy(cwing::sys.get_ren(), texture, NULL, &rectangle);
+            Component::draw();
         }
     }
 
     void Missile::moveForward()
     {
 
-        y--;
-        rectangle.y--;
-        setRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
+
+        rect.y--;
+        Component::setRect(rect.x, rect.y, rect.w, rect.h);
     }
 
     void Missile::hit()

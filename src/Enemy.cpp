@@ -5,15 +5,8 @@
 #include <iostream>
 
 
-    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int v, cwing::Session &ses) : Component(x, y, w, h), x(x), y(y), w(w), h(h), text(txt), velocity(v), ses(ses)
+    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int v, cwing::Session &ses) : Component(x, y, w, h, txt), text(txt), velocity(v), ses(ses), rectangle{x,y,w,h}
     {
-
-        SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
-
-        texture = SDL_CreateTextureFromSurface(cwing::sys.get_ren(), surf);
-
-        rectangle = {x, y, w, h};
-        SDL_FreeSurface(surf);
 
         if (difficulty == "easy")
         {
@@ -32,9 +25,9 @@
     void Enemy::tick()
     {
         moveForward();
-        SDL_Rect rect = this->getRect();
-        if (rect.x + rect.w < 0 || rect.x > ses.getScreenWidth() ||
-            rect.y + rect.h < 0 || rect.y > ses.getScreenHeight())
+        
+        if (rectangle.x + rectangle.w < 0 || rectangle.x > ses.getScreenWidth() ||
+            rectangle.y + rectangle.h < 0 || rectangle.y > ses.getScreenHeight())
         {
             // If it is, add it to the removed vector
             ses.remove(this);
@@ -62,9 +55,8 @@
 
     void Enemy::moveForward()
     {
-        rectangle.y += velocity;
-        y += velocity;
-        setRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
+        rectangle.y += 1;
+        Component::setRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
     }
 
     Enemy::~Enemy()
@@ -73,6 +65,5 @@
 
     void Enemy::draw() const
     {
-        SDL_RenderCopy(cwing::sys.get_ren(), texture, NULL, &rectangle);
     }
 
