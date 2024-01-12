@@ -6,6 +6,7 @@
 #include "Component.h"
 #include "Enemy.h"
 #include "ImageComponent.h"
+#include <set>
 using namespace cwing;
 using namespace std;
 
@@ -14,18 +15,24 @@ float randomFloat(float min, float max)
 	return (min + 1) + (((float)rand()) / (float)RAND_MAX) * (max - (min + 1));
 }
 
-Component *randomEnemy(Session ses)
-{
 
-	vector<int> added_yPos;
+Component *randomEnemy(Session ses, set<int> &added_yPos)
+{
 
 	float velocity = 1;
 	int iSecret = 3;
 	std::string type;
+	int yPos;
 
-	int yPos = rand() % ses.getScreenWidth() + 1;
+
+	do {
+    yPos = rand() % ses.getScreenWidth() + 1;
+
+	} while (added_yPos.find(yPos) != added_yPos.end());
+	added_yPos.insert(yPos);
 
 	switch (iSecret)
+
 	{
 	case 1:
 		type = "easy";
@@ -49,7 +56,7 @@ Component *randomEnemy(Session ses)
 
 int main(int argc, char **argv)
 {
-
+	std::set<int> added_yPos;
 	std::cout << "*** main()\n";
 
 	Session ses;
@@ -61,6 +68,10 @@ int main(int argc, char **argv)
 	Player *player = new Player(ses.getScreenWidth()/2, ses.getScreenHeight()-(ses.getScreenHeight()/4), 32, 32, "images/rymdskepp.bmp", ses);
 
 	ses.add(player);
+
+	for (int i = 0; i < 10; i++){
+		ses.add(randomEnemy(ses, added_yPos));
+	}
 
 
 

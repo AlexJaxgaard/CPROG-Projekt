@@ -4,23 +4,26 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
+Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, cwing::Session &ses)
+    : cwing::Component(x, y, w, h, txt),
+      velocity(velocity),
+      text(txt),
+      ses(ses)
+{
 
-    Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int v, cwing::Session &ses) : Component(x, y, w, h, txt), text(txt), velocity(v), ses(ses), rectangle{x,y,w,h}
+    if (difficulty == "easy")
     {
-
-        if (difficulty == "easy")
-        {
-            lives = 1;
-        }
-        else if (difficulty == "medium")
-        {
-            lives = 2;
-        }
-        else
-        {
-            lives = 3;
-        }
+        lives = 1;
     }
+    else if (difficulty == "medium")
+    {
+        lives = 2;
+    }
+    else
+    {
+        lives = 3;
+    }
+}
 
     void Enemy::tick()
     {
@@ -55,7 +58,7 @@
 
     void Enemy::moveForward()
     {
-        rectangle.y += 1;
+        rectangle.y += velocity;
         Component::setRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
     }
 
@@ -65,5 +68,5 @@
 
     void Enemy::draw() const
     {
+        Component::draw();
     }
-

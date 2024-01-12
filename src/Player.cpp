@@ -7,7 +7,7 @@
 using namespace std;
 
 
-	Player::Player(int x, int y, int w, int h, std::string txt, cwing::Session &ses) : Component(x, y, w, h, txt), rectangle{x,y,w,h}, ses(ses), drag(false)
+	Player::Player(int x, int y, int w, int h, std::string txt, cwing::Session &ses) : Component(x, y, w, h, txt), rectangle{x,y,w,h}, ses(ses)
 	{
 
 	}
@@ -15,57 +15,47 @@ using namespace std;
 	{
 		return new Player(x, y, w, h, txt, ses);
 	}
-	void Player::mouseDown(const SDL_Event &event)
-	{	
 
-
-		SDL_Point p = {event.button.x, event.button.y};
-
-		if (SDL_PointInRect(&p, &Component::getRect()))
-		{ std::cout << "Mouse clicked on rocket" << std::endl;
-			drag = true;
-		}
-	}
-	void Player::mouseUp(const SDL_Event &event)
-	{
-		drag = false;
-	}
 	void Player::keyDown(const SDL_Event &event)
 	{
 
-if (event.key.keysym.sym == SDLK_DOWN)
-{
-    cout << "turning down " + x << endl;
-    if (y <= ses.getScreenHeight() - rectangle.h){
-        y += 10;
-        rectangle.y += 10;
-	}
-}
-else if (event.key.keysym.sym == SDLK_UP)
-{
-    if (y >= 0)
-    {
-        cout << "turning up " << endl;
-        y -= 10;
-        rectangle.y -= 10;
-    }
-}
-else if (event.key.keysym.sym == SDLK_LEFT)
-{   
-    if (x >= 0){
-        cout << "turning left " << endl;
-        x -= 10;
-        rectangle.x -= 10;
-    }
-}
-else if (event.key.keysym.sym == SDLK_RIGHT)
-{
-    if (x <= ses.getScreenWidth() - rectangle.w){
-        cout << "turning right " << endl;
-        x += 10;
-        rectangle.x += 10;
-    }
-}
+		if (event.key.keysym.sym == SDLK_DOWN)
+		{
+			if (getRect().y < ses.getScreenHeight() - getRect().h)
+			{
+				cout << "turning down " + x << endl;
+
+				y += 10;
+				rectangle.y += 10;
+			}
+		}
+		else if (event.key.keysym.sym == SDLK_UP)
+		{
+			if (getRect().y > 0)
+			{
+				cout << "turning up " << endl;
+				y -= 10;
+				rectangle.y -= 10;
+			}
+		}
+		else if (event.key.keysym.sym == SDLK_LEFT)
+		{
+			if (getRect().x > 0)
+			{
+				cout << "turning left " << endl;
+				x -= 10;
+				rectangle.x -= 10;
+			}
+		}
+		else if (event.key.keysym.sym == SDLK_RIGHT)
+		{
+			if (getRect().x < ses.getScreenWidth() - getRect().w)
+			{
+				cout << "turning right " << endl;
+				x += 10;
+				rectangle.x += 10;
+			}
+		}
 		else if (event.key.keysym.sym == SDLK_SPACE)
 		{
 			cout << "space pressed" << endl;
@@ -76,15 +66,6 @@ else if (event.key.keysym.sym == SDLK_RIGHT)
 	}
 	void Player::keyUp(const SDL_Event &)
 	{
-	}
-
-	void Player::mouseMotion(const SDL_Event &event)
-	{
-
-		if (drag){
-			rectangle.x += event.motion.xrel;
-			rectangle.y += event.motion.yrel;
-		}
 	}
 	void Player::draw() const
 	{

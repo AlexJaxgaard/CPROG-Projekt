@@ -8,10 +8,12 @@
 #include "Missile.h"
 #include "Enemy.h"
 
-
-
-    Missile::Missile(int xpos, int ypos, cwing::Session &ses) : cwing::Component(xpos, ypos, 30, 30, "/images/missile.bmp"), ses(ses), hasExploded(false), rect{xpos,ypos,30,30}
-    {
+Missile::Missile(int xpos, int ypos, cwing::Session &ses)
+    : cwing::Component(xpos, ypos, 30, 30, "/images/missile.bmp"),
+      rect{xpos, ypos, 30, 30},
+      ses(ses),
+      hasExploded(false)
+{
 
 
     }
@@ -19,7 +21,6 @@
     void Missile::tick()
     {
 
-        SDL_Rect rect = this->getRect();
         if (getRect().x + getRect().w < 0 || getRect().x > ses.getScreenWidth() ||
             getRect().y + getRect().h < 0 || getRect().y > ses.getScreenHeight())
         {

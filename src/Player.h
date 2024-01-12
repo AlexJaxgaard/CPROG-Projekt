@@ -15,11 +15,11 @@
 		Player(int x, int y, int w, int h, std::string txt, cwing::Session& ses);
 
 		Player *getInstance(int x, int y, int w, int h, std::string txt);
-		void mouseDown(const SDL_Event &);
-		void mouseUp(const SDL_Event &);
+		void mouseDown(const SDL_Event &) {}
+		void mouseUp(const SDL_Event &) {}
 		void keyDown(const SDL_Event &);
 		void keyUp(const SDL_Event &);
-		void mouseMotion(const SDL_Event &);
+		void mouseMotion(const SDL_Event &) {}
 		void draw() const override;
 		// virtual void perform(Button* source) {}
 		void setSprite(SDL_Texture *texture);
@@ -38,7 +38,6 @@
 		std::string text;
 		SDL_Texture *texture;
 		SDL_Rect rectangle;
-		bool drag;
 		cwing::Session& ses;
 		std::string label = "player";
 
