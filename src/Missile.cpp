@@ -1,15 +1,11 @@
-
 #include "Constants.h"
 #include "Player.h"
-#include <SDL2/SDL_ttf.h>
-
-#include <SDL2/SDL_image.h>
 #include <iostream>
 #include "Missile.h"
 #include "Enemy.h"
 
 Missile::Missile(int xpos, int ypos, cwing::Session &ses)
-    : cwing::Component(xpos, ypos, 30, 30, "/images/missile.bmp"),
+    : cwing::Component(xpos, ypos, 30, 30, "images/missile.bmp"),
       rect{xpos, ypos, 30, 30},
       ses(ses),
       hasExploded(false)

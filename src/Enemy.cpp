@@ -1,7 +1,5 @@
 #include "Enemy.h"
-#include <SDL2/SDL_ttf.h>
 #include "Constants.h"
-#include <SDL2/SDL_image.h>
 #include <iostream>
 
 Enemy::Enemy(int x, int y, int w, int h, int velocity, cwing::Session &ses)

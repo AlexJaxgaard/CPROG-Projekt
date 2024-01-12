@@ -1,12 +1,4 @@
 #include "Session.h"
-#include <SDL2/SDL.h>
-#include "System.h"
-#include "Component.h"
-#include "Enemy.h"
-#include "Missile.h"
-#include <iostream>
-#include <algorithm>
-
 #define FPS 80
 
 namespace cwing

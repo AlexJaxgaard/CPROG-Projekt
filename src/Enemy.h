@@ -1,5 +1,4 @@
 #include "Component.h"
-#include <SDL2/SDL.h>
 #include <string>
 #include "System.h"
 #include "Session.h"

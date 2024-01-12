@@ -20,13 +20,14 @@ int main(int argc, char **argv)
 	Session ses;
 	std::clog << "Session Started" << std::endl;
 
-	ImageComponent *backgroundImage = new ImageComponent(0, 0, ses.getScreenWidth(), ses.getScreenHeight(), "bg.bmp");
-	ses.add(backgroundImage);
 
 	Player *player = new Player(ses.getScreenWidth()/2, ses.getScreenHeight()-(ses.getScreenHeight()/4), 32, 32, "images/rymdskepp.bmp", ses);
 
 	ses.add(player);
 	Enemy *enemy = new Enemy(ses.getScreenWidth()/2, 0, 25, 25, 1, ses);
+
+	ImageComponent *backgroundImage = new ImageComponent(ses.getScreenWidth(), ses.getScreenHeight(), 640, 360, "bg.bmp");
+	ses.add(backgroundImage);
 
 	ses.add(enemy);
 

@@ -8,8 +8,6 @@
 namespace cwing
 {
 
-
-
 	Component::Component(int x, int y, int w, int h, std::string txt) : rect{x, y, w, h}
 	{
 
@@ -27,7 +25,6 @@ namespace cwing
 		SDL_FreeSurface(surf);
 
 		std::cout << SDL_GetError() << std::endl;
-
 	}
 	void Component::draw() const
 	{
@@ -37,8 +34,11 @@ namespace cwing
 	Component::~Component()
 	{
 
-		/*Implementation*/
+		if (texture != NULL)
+		{
+			SDL_DestroyTexture(texture);
+			texture = NULL;
+		}
 	}
-
 
 }

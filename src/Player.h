@@ -1,12 +1,10 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-
 #include "Component.h"
-#include <SDL2/SDL.h>
 #include <string>
-
 #include "System.h"
 #include "Session.h"
+
 
 
 	class Player : public cwing::Component

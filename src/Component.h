@@ -1,6 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_Image.h>
 #include <string>
 
 
@@ -31,7 +32,7 @@ namespace cwing
         {
             rect = {x, y, w, h};
         }
-        bool drag;
+
     private:
         SDL_Rect rect;
         Component(const Component &) = delete;
