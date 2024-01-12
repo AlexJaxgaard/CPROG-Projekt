@@ -22,7 +22,6 @@
 		void mouseMotion(const SDL_Event &) {}
 		void draw() const override;
 		// virtual void perform(Button* source) {}
-		void setSprite(SDL_Texture *texture);
 		void tick() override;
 		void collision(Component *comp) override;
 		std::string getLabel() override {return label;}

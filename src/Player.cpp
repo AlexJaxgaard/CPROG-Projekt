@@ -61,6 +61,7 @@ using namespace std;
 			cout << "space pressed" << endl;
 
 			Missile *missile = new Missile(getRect().x, getRect().y, ses);
+			cwing::sys.play_sound("shot.wav");
 			ses.add(missile);
 		}
 	}
@@ -78,7 +79,6 @@ using namespace std;
 	{
 		
 		Component::setRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
-		std::cout << (int)getRect().x << ", " << (int)getRect().y << ", " << (int)getRect().w << ", " << (int)getRect().h << std::endl;
 	}
 
 	void Player::collision(Component *comp)

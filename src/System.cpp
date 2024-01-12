@@ -35,6 +35,13 @@ namespace cwing
 		TTF_Quit();
 		SDL_DestroyWindow(win);
 		SDL_DestroyRenderer(ren);
+		for (int i = 0; i < MIX_CHANNELS; i++)
+		{
+			if (sounds[i] != NULL)
+			{
+				Mix_FreeChunk(sounds[i]);
+			}
+		}
 		SDL_Quit();
 		running = false;
 	}
@@ -56,11 +63,27 @@ namespace cwing
 
 	void System::play_sound(std::string path)
 	{
-
 		Mix_Chunk *sound = Mix_LoadWAV((constants::gResPath + "sounds/" + path).c_str());
 		std::cout << (constants::gResPath + "sounds/" + path).c_str() << std::endl;
-			Mix_PlayChannel(-1, sound, 1);
-		Mix_FreeChunk(sound);
+		if (sound == NULL)
+		{
+			std::cout << "Failed to load sound: " << Mix_GetError() << std::endl;
+			return;
+		}
+		int channel = Mix_PlayChannel(-1, sound, 0);
+		if (channel == -1)
+		{
+			std::cout << "Failed to play sound: " << Mix_GetError() << std::endl;
+			Mix_FreeChunk(sound);
+			return;
+		}
+
+		if (channel >= (int)sounds.size())
+		{
+			sounds.resize(channel + 1, nullptr);
+		}
+
+		sounds[channel] = sound; 
 	}
 
 	bool running;

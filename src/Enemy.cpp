@@ -4,35 +4,26 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
-Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty, int velocity, cwing::Session &ses)
-    : cwing::Component(x, y, w, h, txt),
+Enemy::Enemy(int x, int y, int w, int h, int velocity, cwing::Session &ses)
+    : cwing::Component(x, y, w, h, "images/medium.bmp"),
       velocity(velocity),
-      text(txt),
-      ses(ses)
+      text("images/medium.bmp"),
+      ses(ses),
+      lives(2),
+      rectangle{x, y, w, h}
 {
 
-    if (difficulty == "easy")
-    {
-        lives = 1;
-    }
-    else if (difficulty == "medium")
-    {
-        lives = 2;
-    }
-    else
-    {
-        lives = 3;
-    }
+        std::cout << "Creating enemy with parameters: " << x << ", " << y << ", " << w << ", " << h << ", " << velocity << std::endl;
+
 }
 
     void Enemy::tick()
     {
-        moveForward();
+        //moveForward();
         
-        if (rectangle.x + rectangle.w < 0 || rectangle.x > ses.getScreenWidth() ||
-            rectangle.y + rectangle.h < 0 || rectangle.y > ses.getScreenHeight())
+        if (getRect().x + getRect().w < 0 || getRect().x > ses.getScreenWidth() ||
+            getRect().y + getRect().h < 0 || getRect().y > ses.getScreenHeight())
         {
-            // If it is, add it to the removed vector
             ses.remove(this);
         }
     }
@@ -68,5 +59,5 @@ Enemy::Enemy(int x, int y, int w, int h, std::string txt, std::string difficulty
 
     void Enemy::draw() const
     {
-        Component::draw();
+        cwing::Component::draw();
     }
