@@ -1,21 +1,23 @@
 {
     "configurations": [
         {
-            "name": "Mac",
+            "name": "Win64",
             "includePath": [
-                "/usr/local/include/SDL2",
-                "/usr/local/include",
-                //"/Users/alexanderjaxgard/Library/Frameworks",
-                //"/Users/alexanderjaxgard/Library/Frameworks/SDL2_image.framework",
-                //"/Users/elias/Library/Frameworks",
-                //"/Users/elias/Library/Frameworks/SDL2_image.framework",
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "C:/msys64/ucrt64/include/SDL2",
+                "C:/msys64/ucrt64/include"
             ],
-            "intelliSenseMode": "macos-gcc-x64",
-            "cStandard": "c11",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.17763.0",
+            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+            "cStandard": "c17",
             "cppStandard": "c++17",
-            "compilerPath": "/usr/local/bin/g++-13"
+            "intelliSenseMode": "windows-gcc-x64"
         }
     ],
     "version": 4

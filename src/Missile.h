@@ -1,5 +1,4 @@
 #include "Component.h"
-#include <SDL2/SDL.h>
 #include <string>
 #include "System.h"
 #include "Session.h"
@@ -14,20 +13,18 @@
         ~Missile();
         void draw() const;
         void moveForward();
-        const SDL_Rect &getRect() const { return rectangle; }
+        const SDL_Rect &getRect() const { return rect; }
         void hit();
         void tick() override;
         void collision(Component *comp) override;
         std::string getLabel() override { return label; }
 
     protected:
-        SDL_Rect rectangle;
 
     private:
-        int x;
-        int y;
-        int w;
-        int h;
+
+        SDL_Rect rect;
+
         std::string text;
         SDL_Texture *texture;
         bool isExploding = false;

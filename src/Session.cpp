@@ -1,13 +1,4 @@
 #include "Session.h"
-#include <SDL2/SDL.h>
-#include "System.h"
-#include "Component.h"
-#include "Enemy.h"
-#include "Missile.h"
-#include "Snake.h"
-#include <iostream>
-#include <algorithm>
-
 #define FPS 80
 
 namespace cwing
@@ -24,7 +15,6 @@ namespace cwing
 		added.push_back(c);
 		c->draw();
 	}
-
 
 	void Session::remove(Component *comp)
 	{
@@ -98,7 +88,6 @@ namespace cwing
 
 			for (Component *c : removed)
 			{
-				std::cout << c->getLabel() << " was removed" << std::endl;
 				comps.erase(std::remove(comps.begin(), comps.end(), c), comps.end());
 			}
 			removed.clear();
@@ -149,5 +138,9 @@ namespace cwing
 
 	Session::~Session()
 	{
+		/* 		for (Component *comp : comps)
+				{
+					delete comp;
+				} */
 	}
 }

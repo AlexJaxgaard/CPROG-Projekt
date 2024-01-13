@@ -5,6 +5,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
 #include <string>
+#include <vector>
 
 namespace cwing
 {
@@ -25,6 +26,7 @@ namespace cwing
 		SDL_Renderer *ren;
 		TTF_Font *font;
 		Mix_Chunk *music;
+		std::vector<Mix_Chunk *> sounds;
 		bool running;
 	};
 
