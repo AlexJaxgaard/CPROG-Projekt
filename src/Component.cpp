@@ -12,7 +12,6 @@ namespace cwing
 	{
 
 		SDL_Surface *surf = IMG_Load((constants::gResPath + txt).c_str());
-		std::cout << constants::gResPath + txt << std::endl;
 		if (surf == NULL)
 		{
 			std::cout << "Failed to load image: " << IMG_GetError() << std::endl;
@@ -23,8 +22,6 @@ namespace cwing
 			std::cout << "Failed to create texture: " << SDL_GetError() << std::endl;
 		}
 		SDL_FreeSurface(surf);
-
-		std::cout << SDL_GetError() << std::endl;
 	}
 	void Component::draw() const
 	{

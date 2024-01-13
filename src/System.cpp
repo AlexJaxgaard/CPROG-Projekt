@@ -64,7 +64,6 @@ namespace cwing
 	void System::play_sound(std::string path)
 	{
 		Mix_Chunk *sound = Mix_LoadWAV((constants::gResPath + "sounds/" + path).c_str());
-		std::cout << (constants::gResPath + "sounds/" + path).c_str() << std::endl;
 		if (sound == NULL)
 		{
 			std::cout << "Failed to load sound: " << Mix_GetError() << std::endl;
@@ -83,7 +82,7 @@ namespace cwing
 			sounds.resize(channel + 1, nullptr);
 		}
 
-		sounds[channel] = sound; 
+		sounds[channel] = sound;
 	}
 
 	bool running;

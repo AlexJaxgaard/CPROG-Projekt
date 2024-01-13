@@ -16,7 +16,6 @@ namespace cwing
 		c->draw();
 	}
 
-
 	void Session::remove(Component *comp)
 	{
 		removed.push_back(comp);
@@ -89,7 +88,6 @@ namespace cwing
 
 			for (Component *c : removed)
 			{
-				std::cout << c->getLabel() << " was removed" << std::endl;
 				comps.erase(std::remove(comps.begin(), comps.end(), c), comps.end());
 			}
 			removed.clear();
@@ -140,9 +138,9 @@ namespace cwing
 
 	Session::~Session()
 	{
-/* 		for (Component *comp : comps)
-		{
-			delete comp;
-		} */
+		/* 		for (Component *comp : comps)
+				{
+					delete comp;
+				} */
 	}
 }

@@ -1,6 +1,5 @@
 #include "Constants.h"
 #include "Player.h"
-#include <iostream>
 #include "Missile.h"
 #include "Enemy.h"
 
@@ -89,7 +88,6 @@ void Missile::hit()
 
         if (surf == nullptr)
         {
-            std::cout << "Failed to load image: " << IMG_GetError() << std::endl;
             return;
         }
 
@@ -99,7 +97,6 @@ void Missile::hit()
 
         if (spriteSheet == nullptr)
         {
-            std::cout << "Failed to load texture: " << IMG_GetError() << std::endl;
             return;
         }
 
