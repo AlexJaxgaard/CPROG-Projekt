@@ -60,7 +60,6 @@ void Missile::draw() const
     {
 
         SDL_RenderCopy(cwing::sys.get_ren(), spriteSheet, &sourceRects[currentFrame], &rect);
-        
     }
     else
     {
@@ -110,5 +109,14 @@ void Missile::hit()
             sourceRects.push_back(rect);
         }
         SDL_FreeSurface(surf);
+    }
+}
+
+Missile::~Missile()
+{
+    if (spriteSheet != NULL)
+    {
+        SDL_DestroyTexture(spriteSheet);
+        spriteSheet = NULL;
     }
 }
