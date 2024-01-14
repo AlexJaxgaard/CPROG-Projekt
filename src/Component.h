@@ -10,13 +10,6 @@ namespace cwing
     class Component
     {
 
-    protected:
-        Component(int x, int y, int w, int h);
-        void setRect(int x, int y, int w, int h)
-        {
-            rect = {x, y, w, h};
-        }
-
     private:
         SDL_Rect rect;
         Component(const Component &) = delete;
@@ -25,6 +18,13 @@ namespace cwing
         SDL_Texture *texture;
 
         std::string label = "";
+
+    protected:
+        Component(int x, int y, int w, int h);
+        void setRect(int x, int y, int w, int h)
+        {
+            rect = {x, y, w, h};
+        }
 
     public:
         Component(int x, int y, int w, int h, std::string txt);
