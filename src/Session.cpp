@@ -138,9 +138,9 @@ namespace cwing
 
 	Session::~Session()
 	{
-		/* 		for (Component *comp : comps)
-				{
-					delete comp;
-				} */
+		for (Component *comp : comps)
+		{
+			delete comp;
+				} 
 	}
 }
