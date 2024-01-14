@@ -5,6 +5,18 @@
 
 class Enemy : public cwing::Component
 {
+
+private:
+    int lives;
+    std::string text;
+    SDL_Texture *texture;
+    SDL_Rect rectangle;
+    std::string label = "enemy";
+    cwing::Session &ses;
+
+protected:
+    int velocity;
+
 public:
     Enemy(int x, int y, int w, int h, int velocity, cwing::Session &ses);
     ~Enemy();
@@ -16,15 +28,4 @@ public:
     void collision(Component *comp) override;
     std::string getLabel() override { return label; }
     bool isDead() { return lives <= 0; }
-
-protected:
-    int velocity;
-
-private:
-    int lives;
-    std::string text;
-    SDL_Texture *texture;
-    SDL_Rect rectangle;
-    std::string label = "enemy";
-    cwing::Session &ses;
 };

@@ -13,6 +13,11 @@ namespace cwing
 
 	class Session
 	{
+
+	private:
+		std::vector<Component *> comps;
+		std::vector<Component *> added, removed;
+
 	public:
 		Session();
 		void add(Component *c);
@@ -22,10 +27,6 @@ namespace cwing
 		int getScreenWidth();
 		bool collisionCheck(SDL_Rect rect1, SDL_Rect rect2);
 		~Session();
-
-	private:
-		std::vector<Component *> comps;
-		std::vector<Component *> added, removed;
 	};
 }
 #endif

@@ -12,14 +12,6 @@ namespace cwing
 
 	class System
 	{
-	public:
-		System();
-		~System();
-		
-		SDL_Renderer *get_ren() const;
-		TTF_Font *get_font() const;
-		Mix_Chunk *get_music() const;
-		void play_sound(std::string path);
 
 	private:
 		SDL_Window *win;
@@ -28,6 +20,15 @@ namespace cwing
 		Mix_Chunk *music;
 		std::vector<Mix_Chunk *> sounds;
 		bool running;
+
+	public:
+		System();
+		~System();
+
+		SDL_Renderer *get_ren() const;
+		TTF_Font *get_font() const;
+		Mix_Chunk *get_music() const;
+		void play_sound(std::string path);
 	};
 
 	extern System sys;

@@ -9,19 +9,21 @@
 
 class ImageComponent : public cwing::Component
 {
-public:
-    ImageComponent(int xpos, int ypos, int width, int height, std::string txt);
-    void draw() const override;
-    void tick() override;
-    void collision(Component *comp) override;
-    std::string getLabel() override { return label; }
-    ~ImageComponent();
 
-protected:
 private:
     std::string text;
     SDL_Rect rectangle;
     std::string label = "imagecomponent";
+
+protected:
+public:
+    ImageComponent(int xpos, int ypos, int width, int height, std::string txt);
+    void draw() const override;
+    void tick() override;
+    const SDL_Rect &getRect() const { return rectangle; }
+    void collision(Component *comp) override;
+    std::string getLabel() override { return label; }
+    ~ImageComponent();
 };
 
 #endif
