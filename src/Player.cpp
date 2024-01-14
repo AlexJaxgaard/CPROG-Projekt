@@ -1,7 +1,11 @@
-
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #include "Constants.h"
 #include "Player.h"
-#include "Missile.h"
 
 using namespace std;
 

@@ -1,4 +1,9 @@
-
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #ifndef IMAGECOMPONENT_H
 #define IMAGECOMPONENT_H
 #include "Constants.h"

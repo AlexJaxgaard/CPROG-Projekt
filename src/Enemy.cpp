@@ -1,5 +1,12 @@
-#include "Enemy.h"
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #include "Constants.h"
+#include "Enemy.h"
+
 #include <iostream>
 
 Enemy::Enemy(int x, int y, int w, int h, cwing::Session &ses)

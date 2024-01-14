@@ -1,7 +1,14 @@
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #include "Component.h"
 #include <string>
 #include "System.h"
 #include "Session.h"
+#include "Enemy.h"
 
 class Missile : public cwing::Component
 {

@@ -1,7 +1,12 @@
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #include "Constants.h"
-#include "Player.h"
 #include "Missile.h"
-#include "Enemy.h"
+
 
 Missile::Missile(int xpos, int ypos, cwing::Session &ses)
     : cwing::Component(xpos, ypos, 30, 30, "images/missile.bmp"),

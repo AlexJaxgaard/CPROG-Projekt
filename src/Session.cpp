@@ -1,3 +1,10 @@
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
+#include "Constants.h"
 #include "Session.h"
 #define FPS 80
 

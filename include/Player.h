@@ -1,10 +1,16 @@
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Component.h"
 #include <string>
 #include "System.h"
 #include "Session.h"
-
+#include "Missile.h"
 class Player : public cwing::Component
 {
 

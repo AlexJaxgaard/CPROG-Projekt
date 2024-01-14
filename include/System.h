@@ -1,3 +1,9 @@
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
@@ -6,7 +12,7 @@
 #include <SDL2/SDL_mixer.h>
 #include <string>
 #include <vector>
-
+#include <iostream>
 namespace cwing
 {
 

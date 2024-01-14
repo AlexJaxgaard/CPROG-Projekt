@@ -1,3 +1,9 @@
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #include "Component.h"
 #include "Session.h"
 #include <SDL2/SDL.h>

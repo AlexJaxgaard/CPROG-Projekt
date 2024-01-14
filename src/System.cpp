@@ -1,7 +1,12 @@
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #include "Constants.h"
 #include "System.h"
-#include <SDL2/SDL.h>
-#include <iostream>
+
 
 namespace cwing
 {

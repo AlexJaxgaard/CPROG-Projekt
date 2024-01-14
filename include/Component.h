@@ -1,3 +1,9 @@
+/*
+---------
+Alexander Jaxgård ALJA9460
+Elias Bennaceur ELBE7219
+---------
+*/
 #ifndef COMPONENT_H
 #define COMPONENT_H
 #include <SDL2/SDL.h>
