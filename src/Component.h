@@ -29,7 +29,7 @@ namespace cwing
     public:
         Component(int x, int y, int w, int h, std::string txt);
         Component();
-        ~Component();
+        virtual ~Component();
         virtual void mouseDown(const SDL_Event &eve) {}
         virtual void mouseUp(const SDL_Event &) {}
         virtual void keyDown(const SDL_Event &) {}

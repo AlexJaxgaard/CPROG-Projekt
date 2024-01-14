@@ -17,7 +17,7 @@ namespace cwing
 	private:
 		std::vector<Component *> comps;
 		std::vector<Component *> added, removed;
-
+		int tickCounter = 1;
 	public:
 		Session();
 		void add(Component *c);
@@ -25,6 +25,7 @@ namespace cwing
 		void run();
 		int getScreenHeight();
 		int getScreenWidth();
+		int getCurrentTick() { return tickCounter; }
 		bool collisionCheck(SDL_Rect rect1, SDL_Rect rect2);
 		~Session();
 	};

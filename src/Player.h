@@ -34,7 +34,7 @@ public:
 	void tick() override;
 	void collision(Component *comp) override;
 	std::string getLabel() override { return label; }
-	~Player();
+	~Player(){}
 
 	// SDL_Texture* upIcon, *downIcon;
 };

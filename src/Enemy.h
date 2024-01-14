@@ -13,19 +13,18 @@ private:
     SDL_Rect rectangle;
     std::string label = "enemy";
     cwing::Session &ses;
+    double velocity;
 
 protected:
-    int velocity;
-
 public:
-    Enemy(int x, int y, int w, int h, int velocity, cwing::Session &ses);
-    ~Enemy();
+    Enemy(int x, int y, int w, int h, cwing::Session &ses);
+    ~Enemy(){}
     void draw() const;
     void hit();
     void moveForward();
     const SDL_Rect &getRect() const { return rectangle; }
     void tick() override;
-    void collision(Component *comp) override;
+    void collision(Component *comp) override{}
     std::string getLabel() override { return label; }
     bool isDead() { return lives <= 0; }
 };

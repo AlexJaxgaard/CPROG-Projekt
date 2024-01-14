@@ -18,12 +18,12 @@ private:
 protected:
 public:
     ImageComponent(int xpos, int ypos, int width, int height, std::string txt);
-    void draw() const override;
-    void tick() override;
+    void draw() const override {}
+    void tick() override {}
     const SDL_Rect &getRect() const { return rectangle; }
-    void collision(Component *comp) override;
+    void collision(Component *comp) override{}
     std::string getLabel() override { return label; }
-    ~ImageComponent();
+    ~ImageComponent() {}
 };
 
 #endif

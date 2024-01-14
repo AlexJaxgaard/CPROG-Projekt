@@ -82,8 +82,4 @@ void Player::collision(Component *comp)
 	}
 }
 
-Player::~Player()
-{
-}
-
 // SDL_Texture* upIcon, *downIcon;

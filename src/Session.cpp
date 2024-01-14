@@ -100,7 +100,7 @@ namespace cwing
 			{
 				SDL_Delay(delay);
 			}
-
+			tickCounter++;
 		} // yttre while
 	}
 
@@ -141,6 +141,6 @@ namespace cwing
 		for (Component *comp : comps)
 		{
 			delete comp;
-				} 
+		}
 	}
 }
