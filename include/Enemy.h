@@ -24,13 +24,13 @@ private:
 protected:
 public:
     Enemy(int x, int y, int w, int h, cwing::Session &ses);
-    ~Enemy(){}
+    ~Enemy() {}
     void draw() const;
     void hit();
     void moveForward();
     const SDL_Rect &getRect() const { return rectangle; }
     void tick() override;
-    void collision(Component *comp) override{}
+    void collision(Component *comp) override {}
     std::string getLabel() override { return label; }
     bool isDead() { return lives <= 0; }
 };

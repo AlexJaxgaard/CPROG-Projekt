@@ -24,6 +24,7 @@ namespace cwing
 		std::vector<Component *> comps;
 		std::vector<Component *> added, removed;
 		int tickCounter = 1;
+
 	public:
 		Session();
 		void add(Component *c);

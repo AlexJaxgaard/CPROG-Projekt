@@ -7,7 +7,6 @@ Elias Bennaceur ELBE7219
 #include "Constants.h"
 #include "Missile.h"
 
-
 Missile::Missile(int xpos, int ypos, cwing::Session &ses)
     : cwing::Component(xpos, ypos, 30, 30, "images/missile.bmp"),
       rect{xpos, ypos, 30, 30},

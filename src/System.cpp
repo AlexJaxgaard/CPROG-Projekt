@@ -7,7 +7,6 @@ Elias Bennaceur ELBE7219
 #include "Constants.h"
 #include "System.h"
 
-
 namespace cwing
 {
 
